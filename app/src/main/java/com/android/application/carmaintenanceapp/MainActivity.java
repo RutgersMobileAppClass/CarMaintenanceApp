@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -13,7 +14,10 @@ import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -21,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     EditText passwordEditText;
     EditText userNameEditText;
-    SharedPreferences file;
+    static SharedPreferences file;
     public static final String MY_PREFS_NAME = "MyPrefsFile";
     Boolean rememberMeisChecked;
 
@@ -41,8 +45,23 @@ public class MainActivity extends AppCompatActivity {
             this.remeberMeisChecked = boxChecked;
         }
 
-    }
+        public String getUsername(){
+            return this.username;
+        }
 
+        public String getPassword(){
+            return this.password;
+        }
+
+        public Boolean getRemeberMeisChecked(){
+            return this.remeberMeisChecked;
+        }
+
+        public int getMilage(){
+            return milage;
+        }
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         // Username must have one lowercase, and one uppercase
+        // ALL NEED TO MAKE SURE IT DOES NOT HAVE ANY SPACES
         pattern = Pattern.compile("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{6,20})");
         matcher = pattern.matcher(username);
         Boolean correctUsername = (matcher.matches());
@@ -102,35 +122,50 @@ public class MainActivity extends AppCompatActivity {
         // Check the password is valid
         if (!correctPassword){
             Toast.makeText(this, "Password must have 1 digit, one lowercase letter, one uppercase letter and between 6 and 20 characters", Toast.LENGTH_LONG).show();
+            Log.i("MainActivity", "The invalid password was " + password);
         }
 
         // Check the username is valid
         if(!correctUsername){
-            Toast.makeText(this, "Password must have 1 digit, one lowercase letter, one uppercase letter and between 6 and 20 characters", Toast.LENGTH_LONG).show();
-
+            Toast.makeText(this, "Username must have one lowercase letter, one uppercase letter and between 6 and 20 characters with no spaces", Toast.LENGTH_LONG).show();
+            Log.i("MainActivity", "The invalid username was " + username);
         }
 
         // Log the person in
         if(correctPassword && correctUsername && correctLength) {
-            LogIn(username, password);
+            Log.i("MainActivity", "Call LogIn Function");
+
+            SharedPreferences.Editor editor = file.edit();
+            editor.putBoolean("RemeberMeCheckBox", rememberMeisChecked);
+            editor.apply();
+
+            // Put Object into Shared Preferences
+            LoadedPerson person = new LoadedPerson(username, password, rememberMeisChecked);
+            saveSharedPreferences(this, person);
+
+            LogInToFirebase();
         }
     }
 
-    public void LogIn(String username, String password){
+    public void LogInToFirebase(){
 
-        SharedPreferences.Editor editor = file.edit();
-        editor.putBoolean("RemeberMeCheckBox", rememberMeisChecked);
-        editor.apply();
-
-        LoadedPerson person = new LoadedPerson(username, password, rememberMeisChecked);
-        passwordEditText.setText("");
+        // Load user from Shared Preferences
+        LoadedPerson person = loadSharedPreferences(this);
 
         // Log into firebase
         if(true /*found in firebase with username and correct password*/){
 
+            // SEE IF PERSON IS IN FIRE BASE
+
+            passwordEditText.setText("");
+
+        } else {
+            // If not a person, or wrong password, don't start intent, make toast
+            Toast.makeText(this, "Username & Password did not match any in our database", Toast.LENGTH_LONG).show();
+            Log.i("MainActivity", "We did not find the person\n Username: " + person.getUsername() + "\nPassword: " + person.getUsername());
         }
 
-        // If not a person, or wrong password, don't start intent, make toast
+
 
         // Start intent, save to shared preferences if the checkbox is checked
 
@@ -152,6 +187,26 @@ public class MainActivity extends AppCompatActivity {
         // Create a connection with Firebase and see if the username is already taken
         Toast.makeText(this, "Created a new account and logged in", Toast.LENGTH_LONG).show();
 
+    }
+
+    public static void saveSharedPreferences(Context context, LoadedPerson person) {
+        SharedPreferences.Editor editor = file.edit();
+        Gson gson = new Gson();
+        editor.putString("myJson", gson.toJson(person));
+        editor.apply();
+    }
+
+    public LoadedPerson loadSharedPreferences(Context context) {
+        LoadedPerson person;
+        Gson gson = new Gson();
+        if (file.getString("myJson", "").isEmpty()) {
+            person = new LoadedPerson("FAKE PERSON", "FAKE PERSON", true);
+        } else {
+            Type type = new TypeToken<LoadedPerson>() {}.getType();
+            person = gson.fromJson(file.getString("myJson", ""), type);
+        }
+
+        return person;
     }
 
     /*
@@ -199,25 +254,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     /*
-
-    public static void saveSharedPreferences(Context context, ArrayList<Location> contacts) {
-        SharedPreferences.Editor editor = file.edit();
-        Gson gson = new Gson();
-        editor.putString("myJson", gson.toJson(contacts));
-        editor.apply();
-    }
-
-    public ArrayList<Location> loadSharedPreferences(Context context) {
-        ArrayList<Location> contacts;
-        Gson gson = new Gson();
-        if (file.getString("myJson", "").isEmpty()) {
-            contacts = new ArrayList<>();
-        } else {
-            Type type = new TypeToken<ArrayList<Location>>() {}.getType();
-            contacts = gson.fromJson(file.getString("myJson", ""), type);
-        }
-        return contacts;
-    }
 
     public static void saveSharedPreferencesInt(Context context, int temp) {
         SharedPreferences.Editor editor = file.edit();
