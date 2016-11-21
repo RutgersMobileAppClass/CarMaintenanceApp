@@ -1,32 +1,18 @@
-package com.example.mitchellwalier.carmaintenanceapp;
+package com.android.application.carmaintenanceapp;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     EditText passwordEditText;
     EditText userNameEditText;
-    static SharedPreferences file;
+    SharedPreferences file;
     public static final String MY_PREFS_NAME = "MyPrefsFile";
     Boolean rememberMeisChecked;
 
@@ -57,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         String password = passwordEditText.getText().toString();
 
         if(username.length() < 1 && password.length() < 1){
-            Toast.makeText(this, "Invalid UserName", Toast.LENGTH_LONG);
+            Toast.makeText(this, "Invalid UserName", Toast.LENGTH_LONG).show();
 
         } else {
 
@@ -77,19 +63,19 @@ public class MainActivity extends AppCompatActivity {
 
     public void LoginToGmail(View view){
         // Find person based off of their gmail name
-        Toast.makeText(this, "Logged In to Gmail", Toast.LENGTH_LONG);
+        Toast.makeText(this, "Logged In to Gmail", Toast.LENGTH_LONG).show();
 
     }
 
     public void LoginToFacebook(View view){
         // Find the person based off of their usename
-        Toast.makeText(this, "Logged In to Facebook", Toast.LENGTH_LONG);
+        Toast.makeText(this, "Logged In to Facebook", Toast.LENGTH_LONG).show();
 
     }
 
     public void CreateNewAccount(View view){
         // Create a connection with Firebase and see if the username is already taken
-        Toast.makeText(this, "Created a new account and logged in", Toast.LENGTH_LONG);
+        Toast.makeText(this, "Created a new account and logged in", Toast.LENGTH_LONG).show();
 
     }
 
