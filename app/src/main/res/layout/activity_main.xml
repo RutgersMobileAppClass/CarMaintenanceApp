@@ -14,13 +14,31 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:id="@+id/userNameEditText"
         android:hint="Username"/>
 
+=======
+        android:text="INPUT LOGO HERE INSTEAD"
+        android:textSize="50dp"
+        android:textAlignment="center"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="Username"
+        android:layout_gravity="center"
+        android:textSize="30dp"
+        android:background="@drawable/inputborder"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="50dp"/>
+>>>>>>> master
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:id="@+id/passwordEditText"
         android:hint="Password"/>
 
@@ -47,4 +65,44 @@
 
 
 
+=======
+        android:hint="Password"
+        android:layout_gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textSize="30dp"
+        android:background="@drawable/inputborder"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Login"
+        android:textSize="30dp"
+        android:layout_marginTop="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Facebook"
+            android:layout_gravity="bottom|left"
+            android:layout_weight="1"
+            android:textSize="15dp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gmail"
+            android:layout_gravity="bottom|right"
+            android:layout_weight="1"
+            android:textSize="15dp"/>
+
+    </LinearLayout>
+>>>>>>> master
 </LinearLayout>
