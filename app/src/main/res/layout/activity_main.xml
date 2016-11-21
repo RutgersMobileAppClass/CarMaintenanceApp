@@ -11,16 +11,11 @@
     tools:context="com.example.mitchellwalier.carmaintenanceapp.MainActivity"
     android:orientation="vertical">
 
-    <EditText
-        android:layout_width="match_parent"
+    <TextView
         android:layout_height="wrap_content"
-<<<<<<< HEAD
-        android:id="@+id/userNameEditText"
-        android:hint="Username"/>
-
-=======
+        android:layout_width="wrap_content"
         android:text="INPUT LOGO HERE INSTEAD"
-        android:textSize="50dp"
+        android:textSize="50sp"
         android:textAlignment="center"/>
 
     <EditText
@@ -28,23 +23,37 @@
         android:layout_height="wrap_content"
         android:hint="Username"
         android:layout_gravity="center"
-        android:textSize="30dp"
+        android:textSize="20sp"
         android:background="@drawable/inputborder"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="50dp"/>
->>>>>>> master
+        android:layout_marginTop="50dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        android:id="@+id/userNameEditText"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
+        android:textSize="20sp"
         android:id="@+id/passwordEditText"
-        android:hint="Password"/>
+        android:hint="Password"
+        android:background="@drawable/inputborder"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        android:paddingRight="5dp"
+        android:paddingLeft="5dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" >
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -53,34 +62,41 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" Remeber Me"/>
+            android:text=" Remeber Me"
+            android:textSize="12sp"/>
     </LinearLayout>
 
-    <Button
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="LOG IN"
-        android:id="@+id/button"
-        android:onClick="LogInPerson"/>
-
-
-
-=======
-        android:hint="Password"
-        android:layout_gravity="center"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:textSize="30dp"
-        android:background="@drawable/inputborder"
-        android:layout_marginTop="10dp"/>
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Login"
-        android:textSize="30dp"
-        android:layout_marginTop="10dp"/>
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:onClick="LogInPerson"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Join"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:onClick="CreateNewAccount"/>
+    </LinearLayout>
+
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -91,18 +107,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Facebook"
-            android:layout_gravity="bottom|left"
+            android:layout_gravity="bottom|start"
             android:layout_weight="1"
-            android:textSize="15dp"/>
+            android:textSize="15sp"
+            android:onClick="LoginToFacebook"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Gmail"
-            android:layout_gravity="bottom|right"
+            android:layout_gravity="bottom|end"
             android:layout_weight="1"
-            android:textSize="15dp"/>
+            android:textSize="15sp"
+            android:onClick="LoginToGmail"/>
 
     </LinearLayout>
->>>>>>> master
 </LinearLayout>
