@@ -3,6 +3,7 @@ package com.android.application.carmaintenanceapp;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +13,11 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.gson.Gson;
@@ -28,35 +34,40 @@ public class MainActivity extends AppCompatActivity {
     static SharedPreferences file;
     public static final String MY_PREFS_NAME = "MyPrefsFile";
     Boolean rememberMeisChecked;
+    FirebaseAuth mAuth;
+    FirebaseAuth.AuthStateListener mAuthListener;
 
 
     public static class LoadedPerson {
-        private int milage;
+
         // WE SHOULD NOT STORE THE USER'S username AND password ON THE DEVICE OR IN PLAIN TEXT ON OUR FIREBASE!!
         // https://developer.android.com/reference/android/accounts/AccountManager.html
         // https://developer.android.com/samples/index.html
         private String username;
         private String password;
+        private String email;
         private Boolean remeberMeisChecked;
+        private int milage;
 
-        public LoadedPerson (String name, String pass, Boolean boxChecked){
+        public LoadedPerson (String name, String pass, Boolean boxChecked, String email){
             this.username = name;
             this.password = pass;
             this.remeberMeisChecked = boxChecked;
+            this.email = email;
         }
 
         public String getUsername(){
             return this.username;
         }
-
         public String getPassword(){
             return this.password;
         }
-
+        public String getEmail(){
+            return  email;
+        }
         public Boolean getRemeberMeisChecked(){
             return this.remeberMeisChecked;
         }
-
         public int getMilage(){
             return milage;
         }
@@ -68,38 +79,73 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mAuth = FirebaseAuth.getInstance();
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    // User is signed in
+                    Log.d("MainActivity", "onAuthStateChanged:signed_in:" + user.getUid());
+                } else {
+                    // User is signed out
+                    Log.d("MainActivity", "onAuthStateChanged:signed_out");
+                }
+
+            }
+        };
+
+
         file = this.getSharedPreferences(MY_PREFS_NAME, this.MODE_PRIVATE);
-
-        rememberMeisChecked = file.getBoolean("RemeberMeCheckBox", true);
-
-        // See if "Remeber Me" Check box is checked, if it was than log person in
-
-        // Else, this
+        rememberMeisChecked = file.getBoolean("RemeberMeCheckBox", false);
         passwordEditText = (EditText) findViewById(R.id.passwordEditText);
         userNameEditText = (EditText) findViewById(R.id.userNameEditText);
 
         CheckBox checkBox = (CheckBox) findViewById(R.id.checkBox);
         checkBox.setChecked(rememberMeisChecked);
 
-        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-               @Override
-               public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
-                   SharedPreferences.Editor editor = file.edit();
-                   editor.putBoolean("RemeberMeCheckBox", isChecked);
-                   editor.apply();
+        // See if "Remeber Me" Check box is checked, if it was than log person in
+        if(rememberMeisChecked) {
 
-                   rememberMeisChecked = isChecked;
-               }
-           }
-        );
+        } else {
+            // Else, this
+            checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                                                    @Override
+                                                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                                                        SharedPreferences.Editor editor = file.edit();
+                                                        editor.putBoolean("RemeberMeCheckBox", isChecked);
+                                                        editor.apply();
+
+                                                        rememberMeisChecked = isChecked;
+                                                    }
+                                                }
+            );
+        }
 
     }
 
     public void LogInPerson(View view) {
 
-        String username = userNameEditText.getText().toString();
-        String password = passwordEditText.getText().toString();
-        Boolean correctLength = true;
+        String username = userNameEditText.getText().toString().trim();
+        String password = passwordEditText.getText().toString().trim();
+
+        // Log the person in
+        if(checkIfValidInputs(username, password)) {
+            Log.i("MainActivity", "Call LogIn Function");
+
+            SharedPreferences.Editor editor = file.edit();
+            editor.putBoolean("RemeberMeCheckBox", rememberMeisChecked);
+            editor.apply();
+
+            // Put Object into Shared Preferences
+            LoadedPerson person = new LoadedPerson(username, password, rememberMeisChecked, "mjameswalier@gmail.com");
+            saveSharedPreferences(this, person);
+
+            LoginToFirebase();
+        }
+    }
+
+    public Boolean checkIfValidInputs(String username, String password){
 
         // Password must have 1 digit, one lowercase, one uppercase, and between 6 and 20 characters
         Pattern pattern = Pattern.compile("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{6,20})");
@@ -108,67 +154,57 @@ public class MainActivity extends AppCompatActivity {
 
 
         // Username must have one lowercase, and one uppercase
-        // ALL NEED TO MAKE SURE IT DOES NOT HAVE ANY SPACES
-        pattern = Pattern.compile("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{6,20})");
+        /*pattern = Pattern.compile("((?=.*\\d)(?=.*[a-z]).{6,20})");
         matcher = pattern.matcher(username);
-        Boolean correctUsername = (matcher.matches());
+        Boolean correctUsername = (matcher.matches());*/
 
-        // Check username and password are the correct length
-        if(username.length() < 1 && password.length() < 1){
-            Toast.makeText(this, "Invalid UserName", Toast.LENGTH_LONG).show();
-            correctLength = false;
+        Boolean correctUsername = username.length() > 1;
+
+        // Check username and password do not have any spaces
+        if(username.contains(" ")|| password.contains(" ")){
+            Toast.makeText(this, "Usernames and Passwords should not have spaces", Toast.LENGTH_LONG).show();
+            return false;
         }
 
         // Check the password is valid
         if (!correctPassword){
             Toast.makeText(this, "Password must have 1 digit, one lowercase letter, one uppercase letter and between 6 and 20 characters", Toast.LENGTH_LONG).show();
             Log.i("MainActivity", "The invalid password was " + password);
+            return false;
         }
 
         // Check the username is valid
         if(!correctUsername){
             Toast.makeText(this, "Username must have one lowercase letter, one uppercase letter and between 6 and 20 characters with no spaces", Toast.LENGTH_LONG).show();
             Log.i("MainActivity", "The invalid username was " + username);
+            return false;
         }
 
-        // Log the person in
-        if(correctPassword && correctUsername && correctLength) {
-            Log.i("MainActivity", "Call LogIn Function");
-
-            SharedPreferences.Editor editor = file.edit();
-            editor.putBoolean("RemeberMeCheckBox", rememberMeisChecked);
-            editor.apply();
-
-            // Put Object into Shared Preferences
-            LoadedPerson person = new LoadedPerson(username, password, rememberMeisChecked);
-            saveSharedPreferences(this, person);
-
-            LogInToFirebase();
-        }
+        return true;
     }
 
-    public void LogInToFirebase(){
+    public void LoginToFirebase(){
 
         // Load user from Shared Preferences
-        LoadedPerson person = loadSharedPreferences(this);
+        final LoadedPerson person = loadSharedPreferences(this);
 
-        // Log into firebase
-        if(true /*found in firebase with username and correct password*/){
+        mAuth.signInWithEmailAndPassword(person.getEmail(), person.getPassword())
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        Log.d("MainActivity", "signInWithEmail:onComplete:" + task.isSuccessful());
 
-            // SEE IF PERSON IS IN FIRE BASE
+                        // If sign in fails, display a message to the user. If sign in succeeds
+                        // the auth state listener will be notified and logic to handle the
+                        // signed in user can be handled in the listener.
+                        if (!task.isSuccessful()) {
 
-            passwordEditText.setText("");
+                            Toast.makeText(getApplicationContext(), "Email & Password did not match any in our database", Toast.LENGTH_LONG).show();
+                            Log.i("MainActivity", "We did not find the person\n Username: " + person.getEmail()  + "\nPassword: " + person.getUsername());
 
-        } else {
-            // If not a person, or wrong password, don't start intent, make toast
-            Toast.makeText(this, "Username & Password did not match any in our database", Toast.LENGTH_LONG).show();
-            Log.i("MainActivity", "We did not find the person\n Username: " + person.getUsername() + "\nPassword: " + person.getUsername());
-        }
-
-
-
-        // Start intent, save to shared preferences if the checkbox is checked
-
+                        }
+                    }
+                });
     }
 
     public void LoginToGmail(View view){
@@ -183,10 +219,35 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void CreateNewAccount(View view){
-        // Create a connection with Firebase and see if the username is already taken
-        Toast.makeText(this, "Created a new account and logged in", Toast.LENGTH_LONG).show();
+    public void CreateNewAccount(View view) {
 
+        final String username = userNameEditText.getText().toString().trim();
+        final String password = passwordEditText.getText().toString().trim();
+
+        if (checkIfValidInputs(username, password)){
+            mAuth.createUserWithEmailAndPassword(username, password)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            Log.d("MainActivity", "createUserWithEmail:onComplete:" + task.isSuccessful());
+
+                            // If sign in fails, display a message to the user. If sign in succeeds
+                            // the auth state listener will be notified and logic to handle the
+                            // signed in user can be handled in the listener.
+                            if (!task.isSuccessful()) {
+                                Toast.makeText(getApplicationContext(), "Was not able to create new user", Toast.LENGTH_LONG).show();
+                                Log.i("MainActivity", "We did not find the person\n Username: " + username + "\nPassword: " + password);
+                            } else {
+                                
+
+                                Toast.makeText(getApplicationContext(), "Created a new account and logged in", Toast.LENGTH_LONG).show();
+                                userNameEditText.setText("");
+                                passwordEditText.setText("");
+                                // Start new activity, or maybe a fragment to display to load in data
+                            }
+                        }
+                    });
+        }
     }
 
     public static void saveSharedPreferences(Context context, LoadedPerson person) {
@@ -200,13 +261,27 @@ public class MainActivity extends AppCompatActivity {
         LoadedPerson person;
         Gson gson = new Gson();
         if (file.getString("myJson", "").isEmpty()) {
-            person = new LoadedPerson("FAKE PERSON", "FAKE PERSON", true);
+            person = new LoadedPerson("FAKE PERSON", "FAKE PERSON", true, "FAKE EMAIL!");
         } else {
             Type type = new TypeToken<LoadedPerson>() {}.getType();
             person = gson.fromJson(file.getString("myJson", ""), type);
         }
 
         return person;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListener);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (mAuthListener != null) {
+            mAuth.removeAuthStateListener(mAuthListener);
+        }
     }
 
     /*
