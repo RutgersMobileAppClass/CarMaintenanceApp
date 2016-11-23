@@ -98,36 +98,15 @@ public class MainActivity extends AppCompatActivity {
 
         file = this.getSharedPreferences(MY_PREFS_NAME, this.MODE_PRIVATE);
         rememberMeisChecked = file.getBoolean("RemeberMeCheckBox", false);
+
         passwordEditText = (EditText) findViewById(R.id.passwordEditText);
         userNameEditText = (EditText) findViewById(R.id.userNameEditText);
-
-        CheckBox checkBox = (CheckBox) findViewById(R.id.checkBox);
-        checkBox.setChecked(rememberMeisChecked);
-
-        // See if "Remeber Me" Check box is checked, if it was than log person in
-        if(rememberMeisChecked) {
-
-        } else {
-            // Else, this
-            checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                                                    @Override
-                                                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                                                        SharedPreferences.Editor editor = file.edit();
-                                                        editor.putBoolean("RemeberMeCheckBox", isChecked);
-                                                        editor.apply();
-
-                                                        rememberMeisChecked = isChecked;
-                                                    }
-                                                }
-            );
-        }
-
     }
 
     public void LogInPerson(View view) {
 
-        String username = userNameEditText.getText().toString().trim();
-        String password = passwordEditText.getText().toString().trim();
+        final String username = userNameEditText.getText().toString().trim();
+        final String password = passwordEditText.getText().toString().trim();
 
         // Log the person in
         if(checkIfValidInputs(username, password)) {
@@ -141,24 +120,34 @@ public class MainActivity extends AppCompatActivity {
             LoadedPerson person = new LoadedPerson(username, password, rememberMeisChecked, "mjameswalier@gmail.com");
             saveSharedPreferences(this, person);
 
-            LoginToFirebase();
+            mAuth.signInWithEmailAndPassword(username, password)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            Log.d("MainActivity", "signInWithEmail:onComplete:" + task.isSuccessful());
+
+                            // If sign in fails, display a message to the user. If sign in succeeds
+                            // the auth state listener will be notified and logic to handle the
+                            // signed in user can be handled in the listener.
+                            if (!task.isSuccessful()) {
+
+                                Toast.makeText(getApplicationContext(), "Email & Password did not match any in our database", Toast.LENGTH_LONG).show();
+                                Log.i("MainActivity", "We did not find the person\n Username: " + username  + "\nPassword: " + password);
+
+                            }
+                        }
+                    });
         }
     }
-
+    
     public Boolean checkIfValidInputs(String username, String password){
 
-        // Password must have 1 digit, one lowercase, one uppercase, and between 6 and 20 characters
-        Pattern pattern = Pattern.compile("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{6,20})");
+        // Password must have 2 digit, one lowercase, one uppercase, and between 6 and 20 characters
+        Pattern pattern = Pattern.compile("((?=(.*\\d){2})(?=.*[a-z])(?=.*[A-Z]).{6,20})");
         Matcher matcher = pattern.matcher(password);
         Boolean correctPassword = matcher.matches();
 
-
-        // Username must have one lowercase, and one uppercase
-        /*pattern = Pattern.compile("((?=.*\\d)(?=.*[a-z]).{6,20})");
-        matcher = pattern.matcher(username);
-        Boolean correctUsername = (matcher.matches());*/
-
-        Boolean correctUsername = username.length() > 1;
+        Boolean correctUsername = android.util.Patterns.EMAIL_ADDRESS.matcher(username).matches();
 
         // Check username and password do not have any spaces
         if(username.contains(" ")|| password.contains(" ")){
@@ -183,30 +172,6 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    public void LoginToFirebase(){
-
-        // Load user from Shared Preferences
-        final LoadedPerson person = loadSharedPreferences(this);
-
-        mAuth.signInWithEmailAndPassword(person.getEmail(), person.getPassword())
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        Log.d("MainActivity", "signInWithEmail:onComplete:" + task.isSuccessful());
-
-                        // If sign in fails, display a message to the user. If sign in succeeds
-                        // the auth state listener will be notified and logic to handle the
-                        // signed in user can be handled in the listener.
-                        if (!task.isSuccessful()) {
-
-                            Toast.makeText(getApplicationContext(), "Email & Password did not match any in our database", Toast.LENGTH_LONG).show();
-                            Log.i("MainActivity", "We did not find the person\n Username: " + person.getEmail()  + "\nPassword: " + person.getUsername());
-
-                        }
-                    }
-                });
-    }
-
     public void LoginToGmail(View view){
         // Find person based off of their gmail name
         Toast.makeText(this, "Logged In to Gmail", Toast.LENGTH_LONG).show();
@@ -225,6 +190,7 @@ public class MainActivity extends AppCompatActivity {
         final String password = passwordEditText.getText().toString().trim();
 
         if (checkIfValidInputs(username, password)){
+
             mAuth.createUserWithEmailAndPassword(username, password)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
@@ -236,15 +202,10 @@ public class MainActivity extends AppCompatActivity {
                             // signed in user can be handled in the listener.
                             if (!task.isSuccessful()) {
                                 Toast.makeText(getApplicationContext(), "Was not able to create new user", Toast.LENGTH_LONG).show();
-                                Log.i("MainActivity", "We did not find the person\n Username: " + username + "\nPassword: " + password);
-                            } else {
-                                
-
-                                Toast.makeText(getApplicationContext(), "Created a new account and logged in", Toast.LENGTH_LONG).show();
-                                userNameEditText.setText("");
-                                passwordEditText.setText("");
-                                // Start new activity, or maybe a fragment to display to load in data
+                                Log.i("MainActivity", "We could not create the user\n Username: " + username + "\nPassword: " + password);
                             }
+
+                            // ...
                         }
                     });
         }

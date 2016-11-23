@@ -5,6 +5,11 @@
       <config />
     </shared>
   </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="MainAct" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="info" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="874b30a7-0017-47f3-9839-b80c14b20cd3" name="Default" comment="" />
     <ignored path="CarMaintenanceApp.iws" />
@@ -43,27 +48,23 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/application/carmaintenanceapp/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="107">
-              <caret line="240" column="32" selection-start-line="240" selection-start-column="32" selection-end-line="240" selection-end-column="32" />
+            <state relative-caret-position="315">
+              <caret line="141" column="4" selection-start-line="141" selection-start-column="4" selection-end-line="141" selection-end-column="4" />
               <folding>
                 <element signature="class#LoadedPerson#0;class#MainActivity#0" expanded="false" />
+                <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
                 <element signature="e#2655#3218#0" expanded="true" />
                 <element signature="e#3217#3218#0" expanded="true" />
-                <element signature="e#3851#4564#0" expanded="true" />
-                <element signature="e#4563#4564#0" expanded="true" />
                 <element signature="method#LogInPerson#0;class#MainActivity#0" expanded="false" />
+                <element signature="e#4365#5324#0" expanded="true" />
+                <element signature="e#5323#5324#0" expanded="true" />
                 <element signature="method#checkIfValidInputs#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#LoginToFirebase#0;class#MainActivity#0" expanded="false" />
-                <element signature="e#7291#8223#0" expanded="true" />
-                <element signature="e#8222#8223#0" expanded="true" />
                 <element signature="method#LoginToGmail#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#LoginToFacebook#0;class#MainActivity#0" expanded="false" />
-                <element signature="e#8975#10351#0" expanded="true" />
-                <element signature="e#10350#10351#0" expanded="true" />
-                <element signature="method#saveSharedPreferences#0;class#MainActivity#0" expanded="false" />
+                <element signature="method#CreateNewAccount#0;class#MainActivity#0" expanded="false" />
+                <element signature="e#7564#8543#0" expanded="true" />
+                <element signature="e#8542#8543#0" expanded="true" />
                 <element signature="method#loadSharedPreferences#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#onStart#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#onStop#0;class#MainActivity#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -1630,7 +1631,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="4438961907000" />
+        <entry key="$PROJECT_DIR$" value="4439213403000" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1909,9 +1910,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="720" />
+    <option name="x" value="307" />
     <option name="y" value="23" />
-    <option name="width" value="720" />
+    <option name="width" value="1133" />
     <option name="height" value="873" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -1943,60 +1944,7 @@
       <pane id="ProjectPane" />
       <pane id="Scope" />
       <pane id="AndroidView">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CarMaintenanceApp" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gradle Scripts" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidBuildScriptsGroupNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CarMaintenanceApp" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CarMaintenanceApp" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CarMaintenanceApp" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
+        <subPane />
       </pane>
       <pane id="Scratches" />
     </panes>
@@ -2314,13 +2262,13 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="720" y="23" width="720" height="873" extended-state="0" />
+    <frame x="307" y="23" width="1133" height="873" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32893" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2328,17 +2276,17 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32893" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32879376" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32893" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32893" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29056048" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17690192" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -2362,15 +2310,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/android/application/carmaintenanceapp/MainActivity.java</url>
-          <line>149</line>
-          <properties />
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="6" />
+      <option name="time" value="8" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -2381,23 +2321,19 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="class#LoadedPerson#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
             <element signature="e#2655#3218#0" expanded="true" />
             <element signature="e#3217#3218#0" expanded="true" />
-            <element signature="e#3851#4564#0" expanded="true" />
-            <element signature="e#4563#4564#0" expanded="true" />
             <element signature="method#LogInPerson#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#4365#5324#0" expanded="true" />
+            <element signature="e#5323#5324#0" expanded="true" />
             <element signature="method#checkIfValidInputs#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#LoginToFirebase#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#7291#8223#0" expanded="true" />
-            <element signature="e#8222#8223#0" expanded="true" />
             <element signature="method#LoginToGmail#0;class#MainActivity#0" expanded="false" />
             <element signature="method#LoginToFacebook#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#8975#10351#0" expanded="true" />
-            <element signature="e#10350#10351#0" expanded="true" />
-            <element signature="method#saveSharedPreferences#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#CreateNewAccount#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#7564#8543#0" expanded="true" />
+            <element signature="e#8542#8543#0" expanded="true" />
             <element signature="method#loadSharedPreferences#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onStart#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onStop#0;class#MainActivity#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2416,23 +2352,19 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="class#LoadedPerson#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
             <element signature="e#2655#3218#0" expanded="true" />
             <element signature="e#3217#3218#0" expanded="true" />
-            <element signature="e#3851#4564#0" expanded="true" />
-            <element signature="e#4563#4564#0" expanded="true" />
             <element signature="method#LogInPerson#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#4365#5324#0" expanded="true" />
+            <element signature="e#5323#5324#0" expanded="true" />
             <element signature="method#checkIfValidInputs#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#LoginToFirebase#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#7291#8223#0" expanded="true" />
-            <element signature="e#8222#8223#0" expanded="true" />
             <element signature="method#LoginToGmail#0;class#MainActivity#0" expanded="false" />
             <element signature="method#LoginToFacebook#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#8975#10351#0" expanded="true" />
-            <element signature="e#10350#10351#0" expanded="true" />
-            <element signature="method#saveSharedPreferences#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#CreateNewAccount#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#7564#8543#0" expanded="true" />
+            <element signature="e#8542#8543#0" expanded="true" />
             <element signature="method#loadSharedPreferences#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onStart#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onStop#0;class#MainActivity#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2451,23 +2383,19 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="class#LoadedPerson#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
             <element signature="e#2655#3218#0" expanded="true" />
             <element signature="e#3217#3218#0" expanded="true" />
-            <element signature="e#3851#4564#0" expanded="true" />
-            <element signature="e#4563#4564#0" expanded="true" />
             <element signature="method#LogInPerson#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#4365#5324#0" expanded="true" />
+            <element signature="e#5323#5324#0" expanded="true" />
             <element signature="method#checkIfValidInputs#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#LoginToFirebase#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#7291#8223#0" expanded="true" />
-            <element signature="e#8222#8223#0" expanded="true" />
             <element signature="method#LoginToGmail#0;class#MainActivity#0" expanded="false" />
             <element signature="method#LoginToFacebook#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#8975#10351#0" expanded="true" />
-            <element signature="e#10350#10351#0" expanded="true" />
-            <element signature="method#saveSharedPreferences#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#CreateNewAccount#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#7564#8543#0" expanded="true" />
+            <element signature="e#8542#8543#0" expanded="true" />
             <element signature="method#loadSharedPreferences#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onStart#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onStop#0;class#MainActivity#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2486,23 +2414,19 @@
           <caret line="53" column="32" selection-start-line="53" selection-start-column="32" selection-end-line="53" selection-end-column="32" />
           <folding>
             <element signature="class#LoadedPerson#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
             <element signature="e#2655#3218#0" expanded="true" />
             <element signature="e#3217#3218#0" expanded="true" />
-            <element signature="e#3851#4564#0" expanded="true" />
-            <element signature="e#4563#4564#0" expanded="true" />
             <element signature="method#LogInPerson#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#4365#5324#0" expanded="true" />
+            <element signature="e#5323#5324#0" expanded="true" />
             <element signature="method#checkIfValidInputs#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#LoginToFirebase#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#7291#8223#0" expanded="true" />
-            <element signature="e#8222#8223#0" expanded="true" />
             <element signature="method#LoginToGmail#0;class#MainActivity#0" expanded="false" />
             <element signature="method#LoginToFacebook#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#8975#10351#0" expanded="true" />
-            <element signature="e#10350#10351#0" expanded="true" />
-            <element signature="method#saveSharedPreferences#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#CreateNewAccount#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#7564#8543#0" expanded="true" />
+            <element signature="e#8542#8543#0" expanded="true" />
             <element signature="method#loadSharedPreferences#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onStart#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onStop#0;class#MainActivity#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2571,27 +2495,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/application/carmaintenanceapp/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="240" column="32" selection-start-line="240" selection-start-column="32" selection-end-line="240" selection-end-column="32" />
+        <state relative-caret-position="315">
+          <caret line="141" column="4" selection-start-line="141" selection-start-column="4" selection-end-line="141" selection-end-column="4" />
           <folding>
             <element signature="class#LoadedPerson#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
             <element signature="e#2655#3218#0" expanded="true" />
             <element signature="e#3217#3218#0" expanded="true" />
-            <element signature="e#3851#4564#0" expanded="true" />
-            <element signature="e#4563#4564#0" expanded="true" />
             <element signature="method#LogInPerson#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#4365#5324#0" expanded="true" />
+            <element signature="e#5323#5324#0" expanded="true" />
             <element signature="method#checkIfValidInputs#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#LoginToFirebase#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#7291#8223#0" expanded="true" />
-            <element signature="e#8222#8223#0" expanded="true" />
             <element signature="method#LoginToGmail#0;class#MainActivity#0" expanded="false" />
             <element signature="method#LoginToFacebook#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#8975#10351#0" expanded="true" />
-            <element signature="e#10350#10351#0" expanded="true" />
-            <element signature="method#saveSharedPreferences#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#CreateNewAccount#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#7564#8543#0" expanded="true" />
+            <element signature="e#8542#8543#0" expanded="true" />
             <element signature="method#loadSharedPreferences#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onStart#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onStop#0;class#MainActivity#0" expanded="false" />
           </folding>
         </state>
       </provider>
