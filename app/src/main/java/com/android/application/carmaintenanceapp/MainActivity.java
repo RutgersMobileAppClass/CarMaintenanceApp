@@ -1,6 +1,7 @@
 package com.android.application.carmaintenanceapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
@@ -31,11 +32,16 @@ public class MainActivity extends AppCompatActivity {
 
     EditText passwordEditText;
     EditText userNameEditText;
+    String recentUserName;
     static SharedPreferences file;
     public static final String MY_PREFS_NAME = "MyPrefsFile";
     Boolean rememberMeisChecked;
     FirebaseAuth mAuth;
     FirebaseAuth.AuthStateListener mAuthListener;
+
+    // ADD LOADING ANIMATION
+    // ADD FACEBOOK LOGIN
+    // ADD GMAIL LOGIN
 
 
     public static class LoadedPerson {
@@ -79,34 +85,51 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mAuth = FirebaseAuth.getInstance();
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-                    // User is signed in
-                    Log.d("MainActivity", "onAuthStateChanged:signed_in:" + user.getUid());
-                } else {
-                    // User is signed out
-                    Log.d("MainActivity", "onAuthStateChanged:signed_out");
-                }
-
-            }
-        };
-
 
         file = this.getSharedPreferences(MY_PREFS_NAME, this.MODE_PRIVATE);
         rememberMeisChecked = file.getBoolean("RemeberMeCheckBox", false);
 
         passwordEditText = (EditText) findViewById(R.id.passwordEditText);
         userNameEditText = (EditText) findViewById(R.id.userNameEditText);
+
+        passwordEditText.setText("");
+        recentUserName = file.getString("recentUserName", "");
+        userNameEditText.setText(recentUserName);
+
+        mAuth = FirebaseAuth.getInstance();
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+
+                    SharedPreferences.Editor editor = file.edit();
+                    editor.putString("recentUserName", user.getEmail());
+                    editor.apply();
+
+                    // User is signed in
+                    Intent intent = new Intent(getApplicationContext(), FirstScreen.class);
+                    startActivity(intent);
+                    Log.d("MainActivity", "onAuthStateChanged:signed_in:" + user.getUid());
+                    Toast.makeText(getApplicationContext(), "Entered the next intent", Toast.LENGTH_LONG).show();
+
+                } else {
+                    // User is signed out
+                    Log.d("MainActivity", "onAuthStateChanged:signed_out");
+                    Toast.makeText(getApplicationContext(), "Signed out the user", Toast.LENGTH_LONG).show();
+
+                }
+
+            }
+        };
     }
 
     public void LogInPerson(View view) {
 
         final String username = userNameEditText.getText().toString().trim();
         final String password = passwordEditText.getText().toString().trim();
+
+        passwordEditText.setText("");
 
         // Log the person in
         if(checkIfValidInputs(username, password)) {
@@ -116,16 +139,11 @@ public class MainActivity extends AppCompatActivity {
             editor.putBoolean("RemeberMeCheckBox", rememberMeisChecked);
             editor.apply();
 
-            // Put Object into Shared Preferences
-            LoadedPerson person = new LoadedPerson(username, password, rememberMeisChecked, "mjameswalier@gmail.com");
-            saveSharedPreferences(this, person);
-
             mAuth.signInWithEmailAndPassword(username, password)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             Log.d("MainActivity", "signInWithEmail:onComplete:" + task.isSuccessful());
-
                             // If sign in fails, display a message to the user. If sign in succeeds
                             // the auth state listener will be notified and logic to handle the
                             // signed in user can be handled in the listener.
@@ -135,6 +153,10 @@ public class MainActivity extends AppCompatActivity {
                                 Log.i("MainActivity", "We did not find the person\n Username: " + username  + "\nPassword: " + password);
 
                             }
+
+                            Intent intent = new Intent(getApplicationContext(), FirstScreen.class);
+                            startActivity(intent);
+
                         }
                     });
         }
@@ -197,6 +219,8 @@ public class MainActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             Log.d("MainActivity", "createUserWithEmail:onComplete:" + task.isSuccessful());
 
+                            // SHOULD PUT A LOADING ANIMATION
+
                             // If sign in fails, display a message to the user. If sign in succeeds
                             // the auth state listener will be notified and logic to handle the
                             // signed in user can be handled in the listener.
@@ -209,32 +233,6 @@ public class MainActivity extends AppCompatActivity {
                         }
                     });
         }
-    }
-
-    public static void saveSharedPreferences(Context context, LoadedPerson person) {
-        SharedPreferences.Editor editor = file.edit();
-        Gson gson = new Gson();
-        editor.putString("myJson", gson.toJson(person));
-        editor.apply();
-    }
-
-    public LoadedPerson loadSharedPreferences(Context context) {
-        LoadedPerson person;
-        Gson gson = new Gson();
-        if (file.getString("myJson", "").isEmpty()) {
-            person = new LoadedPerson("FAKE PERSON", "FAKE PERSON", true, "FAKE EMAIL!");
-        } else {
-            Type type = new TypeToken<LoadedPerson>() {}.getType();
-            person = gson.fromJson(file.getString("myJson", ""), type);
-        }
-
-        return person;
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        mAuth.addAuthStateListener(mAuthListener);
     }
 
     @Override
