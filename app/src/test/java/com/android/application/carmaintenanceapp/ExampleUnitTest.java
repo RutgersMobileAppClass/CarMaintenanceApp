@@ -1,4 +1,4 @@
-package com.example.mitchellwalier.carmaintenanceapp;
+package com.android.application.carmaintenanceapp;
 
 import org.junit.Test;
 
