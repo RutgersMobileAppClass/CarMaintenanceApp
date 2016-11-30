@@ -109,6 +109,19 @@
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
+
+        <com.facebook.login.widget.LoginButton
+            android:id="@+id/facebook_login_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="LoginToFacebook"
+            android:layout_gravity="bottom|start"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
+            />
+
+<!---
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -116,16 +129,20 @@
             android:layout_gravity="bottom|start"
             android:layout_weight="1"
             android:textSize="15sp"
-            android:onClick="LoginToFacebook"/>
+            android:onClick="LoginToFacebook"
+            android:id="@+id/facebook_login_button"
+            />  -->
 
-        <Button
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/sign_in_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Gmail"
             android:layout_gravity="bottom|end"
             android:layout_weight="1"
-            android:textSize="15sp"
-            android:onClick="LoginToGmail"/>
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:onClick="LoginToGmail"
+            />
 
     </LinearLayout>
 </LinearLayout>

@@ -5,6 +5,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -24,7 +25,14 @@ public class FirstScreen extends AppCompatActivity {
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         // Log out person and go back to login
-                        FirebaseAuth.getInstance().signOut();
+                        try {
+                            FirebaseAuth.getInstance().signOut();
+                        } catch(Exception e) {}
+                        try {
+                            LoginManager.getInstance().logOut();
+                        } catch(Exception e) {}
+
+
                         finish();
                     }
                 })
