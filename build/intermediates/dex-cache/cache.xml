@@ -61,7 +61,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="a0fa624c9cabe1e4ab5957624586fb4c5726c145">
+        sha1="e0ed565dde9c4db338afe61902ba09ac7552c7aa">
         <dex dex="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_b34cc8e9857de5738602bd48ef1933338025cdd5/classes.dex" />
     </item>
     <item
@@ -133,7 +133,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="1e6f0f4953e3577dfdd732c47e7159d84b7eedd8">
+        sha1="8bdebe23523ad2931883721112d5c74ff9e878b1">
         <dex dex="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_c9fc70b91f45e3a0297641b29bfe409bfe9ffc46/classes.dex" />
     </item>
     <item

@@ -6,7 +6,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="Facebook" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="First " />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="info" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
@@ -48,56 +48,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/application/carmaintenanceapp/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-300">
-              <caret line="169" column="13" selection-start-line="169" selection-start-column="13" selection-end-line="169" selection-end-column="13" />
+            <state relative-caret-position="406">
+              <caret line="428" column="0" selection-start-line="428" selection-start-column="0" selection-end-line="428" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="class#LoadedPerson#0;class#MainActivity#0" expanded="false" />
-                <element signature="e#4752#5855#0" expanded="true" />
-                <element signature="e#5854#5855#0" expanded="true" />
-                <element signature="e#6481#7989#0" expanded="true" />
-                <element signature="e#7988#7989#0" expanded="true" />
+                <element signature="e#4466#5642#0" expanded="true" />
+                <element signature="e#5641#5642#0" expanded="true" />
+                <element signature="e#8592#8957#0" expanded="true" />
+                <element signature="e#8956#8957#0" expanded="true" />
+                <element signature="e#9498#9983#0" expanded="true" />
+                <element signature="e#9982#9983#0" expanded="true" />
                 <element signature="method#LogInPerson#0;class#MainActivity#0" expanded="false" />
-                <element signature="e#9265#10376#0" expanded="true" />
-                <element signature="e#10375#10376#0" expanded="true" />
                 <element signature="method#checkIfValidInputs#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#LoginToGmail#0;class#MainActivity#0" expanded="false" />
-                <element signature="e#12312#12593#0" expanded="true" />
-                <element signature="e#12592#12593#0" expanded="true" />
-                <element signature="method#LoginToFacebook#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#CreateNewAccount#0;class#MainActivity#0" expanded="false" />
-                <element signature="e#13516#14558#0" expanded="true" />
-                <element signature="e#14557#14558#0" expanded="true" />
                 <element signature="method#onActivityResult#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#handleSignInResult#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#onStop#0;class#MainActivity#0" expanded="false" />
+                <element signature="method#MoveToFirstScreen#0;class#MainActivity#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FirstScreen.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/application/carmaintenanceapp/FirstScreen.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_main.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="121" column="14" selection-start-line="121" selection-start-column="14" selection-end-line="121" selection-end-column="14" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -1951,14 +1921,14 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/mitchellwalier/carmaintenanceapp/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/android/application/carmaintenanceapp/FacebookFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/android/application/carmaintenanceapp/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/android/application/carmaintenanceapp/FirstScreen.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/android/application/carmaintenanceapp/MainActivity.java" />
       </list>
     </option>
   </component>
@@ -1992,9 +1962,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
-      <pane id="ProjectPane" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -2011,6 +1980,28 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CarMaintenanceApp" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -2045,9 +2036,20 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CarMaintenanceApp" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="ProjectPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2064,24 +2066,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Android App.app">
-    <configuration default="false" name="CarMaintenanceApp [signingReport]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="signingReport" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <method />
-    </configuration>
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android App">
       <module name="" />
       <option name="DEPLOY" value="true" />
@@ -2356,15 +2340,28 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method />
     </configuration>
+    <configuration default="false" name="CarMaintenanceApp [signingReport]" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="signingReport" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <method />
+    </configuration>
     <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Android App.app" />
       <item index="1" class="java.lang.String" itemvalue="Gradle.CarMaintenanceApp [signingReport]" />
     </list>
-    <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Gradle.CarMaintenanceApp [signingReport]" />
-      </list>
-    </recent_temporary>
     <configuration name="&lt;template&gt;" type="Applet" default="true" selected="false">
       <option name="MAIN_CLASS_NAME" />
       <option name="HTML_FILE_NAME" />
@@ -2391,8 +2388,17 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="873" extended-state="6" />
+    <frame x="0" y="23" width="1440" height="873" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2405,19 +2411,20 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32893" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32893" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30825958" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31858408" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32893" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32893" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11015737" sideWeight="0.61811024" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.10625" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1695279" sideWeight="0.61811024" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32893" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44093025" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11015737" sideWeight="0.38188976" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -2426,7 +2433,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32893" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -2440,7 +2446,15 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="10" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/android/application/carmaintenanceapp/MainActivity.java</url>
+          <line>383</line>
+          <properties />
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="15" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -2452,24 +2466,47 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="class#LoadedPerson#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#4752#5855#0" expanded="true" />
-            <element signature="e#5854#5855#0" expanded="true" />
-            <element signature="e#6481#7989#0" expanded="true" />
-            <element signature="e#7988#7989#0" expanded="true" />
+            <element signature="e#4466#5642#0" expanded="true" />
+            <element signature="e#5641#5642#0" expanded="true" />
+            <element signature="e#8592#8957#0" expanded="true" />
+            <element signature="e#8956#8957#0" expanded="true" />
+            <element signature="e#9498#9983#0" expanded="true" />
+            <element signature="e#9982#9983#0" expanded="true" />
             <element signature="method#LogInPerson#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#9265#10376#0" expanded="true" />
-            <element signature="e#10375#10376#0" expanded="true" />
             <element signature="method#checkIfValidInputs#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#LoginToGmail#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#12312#12593#0" expanded="true" />
-            <element signature="e#12592#12593#0" expanded="true" />
-            <element signature="method#LoginToFacebook#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#CreateNewAccount#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#13516#14558#0" expanded="true" />
-            <element signature="e#14557#14558#0" expanded="true" />
             <element signature="method#onActivityResult#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#handleSignInResult#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onStop#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#MoveToFirstScreen#0;class#MainActivity#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1875">
+          <caret line="125" column="0" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/application/carmaintenanceapp/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="class#LoadedPerson#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#4466#5642#0" expanded="true" />
+            <element signature="e#5641#5642#0" expanded="true" />
+            <element signature="e#8592#8957#0" expanded="true" />
+            <element signature="e#8956#8957#0" expanded="true" />
+            <element signature="e#9498#9983#0" expanded="true" />
+            <element signature="e#9982#9983#0" expanded="true" />
+            <element signature="method#LogInPerson#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#checkIfValidInputs#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onActivityResult#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onStop#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#MoveToFirstScreen#0;class#MainActivity#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2489,24 +2526,17 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="class#LoadedPerson#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#4752#5855#0" expanded="true" />
-            <element signature="e#5854#5855#0" expanded="true" />
-            <element signature="e#6481#7989#0" expanded="true" />
-            <element signature="e#7988#7989#0" expanded="true" />
+            <element signature="e#4466#5642#0" expanded="true" />
+            <element signature="e#5641#5642#0" expanded="true" />
+            <element signature="e#8592#8957#0" expanded="true" />
+            <element signature="e#8956#8957#0" expanded="true" />
+            <element signature="e#9498#9983#0" expanded="true" />
+            <element signature="e#9982#9983#0" expanded="true" />
             <element signature="method#LogInPerson#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#9265#10376#0" expanded="true" />
-            <element signature="e#10375#10376#0" expanded="true" />
             <element signature="method#checkIfValidInputs#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#LoginToGmail#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#12312#12593#0" expanded="true" />
-            <element signature="e#12592#12593#0" expanded="true" />
-            <element signature="method#LoginToFacebook#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#CreateNewAccount#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#13516#14558#0" expanded="true" />
-            <element signature="e#14557#14558#0" expanded="true" />
             <element signature="method#onActivityResult#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#handleSignInResult#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onStop#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#MoveToFirstScreen#0;class#MainActivity#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2526,24 +2556,17 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="class#LoadedPerson#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#4752#5855#0" expanded="true" />
-            <element signature="e#5854#5855#0" expanded="true" />
-            <element signature="e#6481#7989#0" expanded="true" />
-            <element signature="e#7988#7989#0" expanded="true" />
+            <element signature="e#4466#5642#0" expanded="true" />
+            <element signature="e#5641#5642#0" expanded="true" />
+            <element signature="e#8592#8957#0" expanded="true" />
+            <element signature="e#8956#8957#0" expanded="true" />
+            <element signature="e#9498#9983#0" expanded="true" />
+            <element signature="e#9982#9983#0" expanded="true" />
             <element signature="method#LogInPerson#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#9265#10376#0" expanded="true" />
-            <element signature="e#10375#10376#0" expanded="true" />
             <element signature="method#checkIfValidInputs#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#LoginToGmail#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#12312#12593#0" expanded="true" />
-            <element signature="e#12592#12593#0" expanded="true" />
-            <element signature="method#LoginToFacebook#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#CreateNewAccount#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#13516#14558#0" expanded="true" />
-            <element signature="e#14557#14558#0" expanded="true" />
             <element signature="method#onActivityResult#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#handleSignInResult#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onStop#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#MoveToFirstScreen#0;class#MainActivity#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2563,24 +2586,17 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="class#LoadedPerson#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#4752#5855#0" expanded="true" />
-            <element signature="e#5854#5855#0" expanded="true" />
-            <element signature="e#6481#7989#0" expanded="true" />
-            <element signature="e#7988#7989#0" expanded="true" />
+            <element signature="e#4466#5642#0" expanded="true" />
+            <element signature="e#5641#5642#0" expanded="true" />
+            <element signature="e#8592#8957#0" expanded="true" />
+            <element signature="e#8956#8957#0" expanded="true" />
+            <element signature="e#9498#9983#0" expanded="true" />
+            <element signature="e#9982#9983#0" expanded="true" />
             <element signature="method#LogInPerson#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#9265#10376#0" expanded="true" />
-            <element signature="e#10375#10376#0" expanded="true" />
             <element signature="method#checkIfValidInputs#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#LoginToGmail#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#12312#12593#0" expanded="true" />
-            <element signature="e#12592#12593#0" expanded="true" />
-            <element signature="method#LoginToFacebook#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#CreateNewAccount#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#13516#14558#0" expanded="true" />
-            <element signature="e#14557#14558#0" expanded="true" />
             <element signature="method#onActivityResult#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#handleSignInResult#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onStop#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#MoveToFirstScreen#0;class#MainActivity#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2600,24 +2616,17 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="class#LoadedPerson#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#4752#5855#0" expanded="true" />
-            <element signature="e#5854#5855#0" expanded="true" />
-            <element signature="e#6481#7989#0" expanded="true" />
-            <element signature="e#7988#7989#0" expanded="true" />
+            <element signature="e#4466#5642#0" expanded="true" />
+            <element signature="e#5641#5642#0" expanded="true" />
+            <element signature="e#8592#8957#0" expanded="true" />
+            <element signature="e#8956#8957#0" expanded="true" />
+            <element signature="e#9498#9983#0" expanded="true" />
+            <element signature="e#9982#9983#0" expanded="true" />
             <element signature="method#LogInPerson#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#9265#10376#0" expanded="true" />
-            <element signature="e#10375#10376#0" expanded="true" />
             <element signature="method#checkIfValidInputs#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#LoginToGmail#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#12312#12593#0" expanded="true" />
-            <element signature="e#12592#12593#0" expanded="true" />
-            <element signature="method#LoginToFacebook#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#CreateNewAccount#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#13516#14558#0" expanded="true" />
-            <element signature="e#14557#14558#0" expanded="true" />
             <element signature="method#onActivityResult#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#handleSignInResult#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onStop#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#MoveToFirstScreen#0;class#MainActivity#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2653,6 +2662,7 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2674,22 +2684,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="25" column="1" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_facebook.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/application/carmaintenanceapp/FacebookFragment.java" />
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -2698,34 +2694,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_facebook.xml" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/application/carmaintenanceapp/FacebookFragment.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/application/carmaintenanceapp/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-300">
-          <caret line="169" column="13" selection-start-line="169" selection-start-column="13" selection-end-line="169" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="class#LoadedPerson#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#4752#5855#0" expanded="true" />
-            <element signature="e#5854#5855#0" expanded="true" />
-            <element signature="e#6481#7989#0" expanded="true" />
-            <element signature="e#7988#7989#0" expanded="true" />
-            <element signature="method#LogInPerson#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#9265#10376#0" expanded="true" />
-            <element signature="e#10375#10376#0" expanded="true" />
-            <element signature="method#checkIfValidInputs#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#LoginToGmail#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#12312#12593#0" expanded="true" />
-            <element signature="e#12592#12593#0" expanded="true" />
-            <element signature="method#LoginToFacebook#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#CreateNewAccount#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#13516#14558#0" expanded="true" />
-            <element signature="e#14557#14558#0" expanded="true" />
-            <element signature="method#onActivityResult#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#handleSignInResult#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onStop#0;class#MainActivity#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="300">
+          <caret line="37" column="31" selection-start-line="37" selection-start-column="31" selection-end-line="37" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2734,17 +2707,51 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="121" column="14" selection-start-line="121" selection-start-column="14" selection-end-line="121" selection-end-column="14" />
+        <state relative-caret-position="292">
+          <caret line="144" column="18" selection-start-line="144" selection-start-column="18" selection-end-line="144" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="34" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/application/carmaintenanceapp/FirstScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
-          <folding />
+        <state relative-caret-position="165">
+          <caret line="33" column="62" selection-start-line="33" selection-start-column="62" selection-end-line="33" selection-end-column="62" />
+          <folding>
+            <element signature="e#2222#2411#0" expanded="true" />
+            <element signature="e#2410#2411#0" expanded="true" />
+            <marker date="1480551881000" expanded="false" signature="1018:1134" ph="(dialog, which) → {" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/android/application/carmaintenanceapp/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="428" column="0" selection-start-line="428" selection-start-column="0" selection-end-line="428" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="class#LoadedPerson#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#4466#5642#0" expanded="true" />
+            <element signature="e#5641#5642#0" expanded="true" />
+            <element signature="e#8592#8957#0" expanded="true" />
+            <element signature="e#8956#8957#0" expanded="true" />
+            <element signature="e#9498#9983#0" expanded="true" />
+            <element signature="e#9982#9983#0" expanded="true" />
+            <element signature="method#LogInPerson#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#checkIfValidInputs#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onActivityResult#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onStop#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#MoveToFirstScreen#0;class#MainActivity#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

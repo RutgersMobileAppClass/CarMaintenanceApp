@@ -3,18 +3,11 @@ package com.android.application.carmaintenanceapp;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -32,23 +25,20 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 import com.facebook.FacebookSdk;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -57,21 +47,18 @@ public class MainActivity extends FragmentActivity {
 
     EditText passwordEditText;
     EditText userNameEditText;
-    String recentUserName;
     static SharedPreferences file;
     public static final String MY_PREFS_NAME = "MyPrefsFile";
     Boolean rememberMeisChecked;
     FirebaseAuth mAuth;
     FirebaseAuth.AuthStateListener mAuthListener;
-    GoogleApiClient mGoogleApiClient;
-    String google_client_id = "577942935082-u4srtria118c8pukqn7bdkvuffvjvv42.apps.googleusercontent.com";
+    static GoogleApiClient mGoogleApiClient;
     CallbackManager callbackManager;
     LoginButton login_button;
+    Boolean ShutOffButtons;
 
-    // ADD LOADING ANIMATION
-    // ADD FACEBOOK LOGIN
-    // ADD GMAIL LOGIN
-    // FIGURE OUT WHAT NEEDS TO BE IN SERVICE AND WHAT NEEDS TO BE IN ASYNCTASK!!
+
+    // NEED TO CREATE A FIREBASE INSTANCE THAT IS STATIC ACROSS THE ENTIRE APP TO SAVE AND LOAD SHIT!
 
 
     public static class LoadedPerson {
@@ -80,33 +67,34 @@ public class MainActivity extends FragmentActivity {
         // https://developer.android.com/reference/android/accounts/AccountManager.html
         // https://developer.android.com/samples/index.html
         private String username;
-        private String password;
         private String email;
-        private Boolean remeberMeisChecked;
         private int milage;
+        private ArrayList<Float> expenses;
+        private ArrayList<String> type_of_expense;
+        private ArrayList<String> car_models;
+        private float total_expenses;
 
-        public LoadedPerson (String name, String pass, Boolean boxChecked, String email){
-            this.username = name;
-            this.password = pass;
-            this.remeberMeisChecked = boxChecked;
-            this.email = email;
+
+        public LoadedPerson (String _name, ArrayList<String> _car_models){
+            this.username = _name;
+            this.car_models = _car_models;
         }
+
+        public LoadedPerson() {}
 
         public String getUsername(){
             return this.username;
         }
-        public String getPassword(){
-            return this.password;
-        }
         public String getEmail(){
             return  email;
-        }
-        public Boolean getRemeberMeisChecked(){
-            return this.remeberMeisChecked;
         }
         public int getMilage(){
             return milage;
         }
+        public ArrayList<Float> getExpenses() {return expenses;}
+        public ArrayList<String> getType_of_expense() {return type_of_expense;}
+        public ArrayList<String> getCar_models() {return car_models;}
+        public float getTotal_expenses() {return total_expenses;}
 
     }
 
@@ -129,6 +117,9 @@ public class MainActivity extends FragmentActivity {
         passwordEditText.setText("");
         userNameEditText.setText(file.getString("recentUserName", ""));
 
+        findViewById(R.id.progress_bar).setVisibility(View.GONE);
+        ShutOffButtons = false;
+
         //////////////// Firebase code
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -142,8 +133,8 @@ public class MainActivity extends FragmentActivity {
                     editor.apply();
 
                     // User is signed in
-                    Intent intent = new Intent(getApplicationContext(), FirstScreen.class);
-                    startActivity(intent);
+                    MoveToFirstScreen();
+                    ShutOffButtons = false;
 
                     Log.d("MainActivity", "onAuthStateChanged:signed_in:" + user.getUid());
                     Toast.makeText(getApplicationContext(), "Entered the next intent", Toast.LENGTH_LONG).show();
@@ -152,6 +143,9 @@ public class MainActivity extends FragmentActivity {
                     // User is signed out
                     Log.d("MainActivity", "onAuthStateChanged:signed_out");
                     Toast.makeText(getApplicationContext(), "Signed out the user", Toast.LENGTH_LONG).show();
+
+                    findViewById(R.id.progress_bar).setVisibility(View.GONE);
+                    ShutOffButtons = false;
 
                 }
 
@@ -168,7 +162,6 @@ public class MainActivity extends FragmentActivity {
             @Override
             public void onSuccess(LoginResult loginResult)
             {
-                //login_button.setVisibility(View.GONE);
 
                 GraphRequest graphRequest   =   GraphRequest.newMeRequest(loginResult.getAccessToken(), new GraphRequest.GraphJSONObjectCallback()
                 {
@@ -192,8 +185,8 @@ public class MainActivity extends FragmentActivity {
                             editor.putString("recentUserName", "");
                             editor.apply();
 
-                            Intent intent = new Intent(getApplicationContext(), FirstScreen.class);
-                            startActivity(intent);
+                            MoveToFirstScreen();
+                            ShutOffButtons = false;
 
                         }
                         catch (JSONException e)
@@ -213,6 +206,8 @@ public class MainActivity extends FragmentActivity {
             public void onCancel()
             {
                 Log.i("Facebook Login", "It was canceled");
+                findViewById(R.id.progress_bar).setVisibility(View.GONE);
+                ShutOffButtons = false;
 
             }
 
@@ -220,46 +215,91 @@ public class MainActivity extends FragmentActivity {
             public void onError(FacebookException exception)
             {
                 Log.i("Facebook Login" , "There was an error " + exception.toString());
+                findViewById(R.id.progress_bar).setVisibility(View.GONE);
+                ShutOffButtons = false;
             }
         });
+
+        //////////////// Google code
+        View.OnClickListener googleLogin = new View.OnClickListener() {
+            public void onClick(View v) {
+
+                findViewById(R.id.progress_bar).setVisibility(View.VISIBLE);
+                ShutOffButtons = true;
+
+                Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
+                startActivityForResult(signInIntent, 101);
+            }
+        };
+
+        SignInButton signInButton = (SignInButton) findViewById(R.id.sign_in_button);
+        signInButton.setOnClickListener(googleLogin);
+
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                //.requestScopes(new Scope(Scopes.DRIVE_APPFOLDER))
+                //.requestServerAuthCode(server_client_id, false)
+                .requestEmail()
+                .build();
+
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .enableAutoManage(this, new GoogleApiClient.OnConnectionFailedListener() {
+                    @Override
+                    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+                        // connection failed, should be handled
+                        Log.i("MainActivity", "Gmail connection failed");
+                        findViewById(R.id.progress_bar).setVisibility(View.GONE);
+                        ShutOffButtons = false;
+                    }
+                })
+                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+                .build();
 
     }
 
     public void LogInPerson(View view) {
+        if(!ShutOffButtons) {
+            ShutOffButtons = true;
+            findViewById(R.id.progress_bar).setVisibility(View.VISIBLE);
 
-        final String username = userNameEditText.getText().toString().trim();
-        final String password = passwordEditText.getText().toString().trim();
+            final String username = userNameEditText.getText().toString().trim();
+            final String password = passwordEditText.getText().toString().trim();
 
-        passwordEditText.setText("");
+            passwordEditText.setText("");
 
-        // Log the person in
-        if(checkIfValidInputs(username, password)) {
-            Log.i("MainActivity", "Call LogIn Function");
+            // Log the person in
+            if (checkIfValidInputs(username, password)) {
+                Log.i("MainActivity", "Call LogIn Function");
 
-            SharedPreferences.Editor editor = file.edit();
-            editor.putBoolean("RemeberMeCheckBox", rememberMeisChecked);
-            editor.apply();
+                SharedPreferences.Editor editor = file.edit();
+                editor.putBoolean("RemeberMeCheckBox", rememberMeisChecked);
+                editor.apply();
 
-            mAuth.signInWithEmailAndPassword(username, password)
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            Log.d("MainActivity", "signInWithEmail:onComplete:" + task.isSuccessful());
-                            // If sign in fails, display a message to the user. If sign in succeeds
-                            // the auth state listener will be notified and logic to handle the
-                            // signed in user can be handled in the listener.
-                            if (!task.isSuccessful()) {
+                mAuth.signInWithEmailAndPassword(username, password)
+                        .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                Log.d("MainActivity", "signInWithEmail:onComplete:" + task.isSuccessful());
+                                // If sign in fails, display a message to the user. If sign in succeeds
+                                // the auth state listener will be notified and logic to handle the
+                                // signed in user can be handled in the listener.
+                                if (!task.isSuccessful()) {
 
-                                Toast.makeText(getApplicationContext(), "Email & Password did not match any in our database", Toast.LENGTH_LONG).show();
-                                Log.i("MainActivity", "We did not find the person\n Username: " + username  + "\nPassword: " + password);
+                                    Toast.makeText(getApplicationContext(), "Email & Password did not match any in our database", Toast.LENGTH_LONG).show();
+                                    Log.i("MainActivity", "We did not find the person\n Username: " + username + "\nPassword: " + password);
+
+                                    findViewById(R.id.progress_bar).setVisibility(View.GONE);
+                                    ShutOffButtons = false;
+
+                                }
+
+                                MoveToFirstScreen();
 
                             }
-
-                            Intent intent = new Intent(getApplicationContext(), FirstScreen.class);
-                            startActivity(intent);
-
-                        }
-                    });
+                        });
+            } else {
+                findViewById(R.id.progress_bar).setVisibility(View.GONE);
+                ShutOffButtons = false;
+            }
         }
     }
 
@@ -295,65 +335,47 @@ public class MainActivity extends FragmentActivity {
         return true;
     }
 
-    // TEST THIS!!!! 
-    public void LoginToGmail(View view){
-        Log.i("MainActivity", "Logged into Gmail");
-
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestServerAuthCode(google_client_id, false)
-                .requestEmail()
-                .build();
-
-        mGoogleApiClient = new GoogleApiClient.Builder(this)
-                .enableAutoManage(this, new GoogleApiClient.OnConnectionFailedListener() {
-                    @Override
-                    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-                        // connection failed, should be handled
-                    }
-                })
-                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
-                .build();
-
-        Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
-        startActivityForResult(signInIntent, 101);
-
-        // Find person based off of their gmail name
-        Toast.makeText(this, "Logged In to Gmail", Toast.LENGTH_LONG).show();
-
-    }
-
-    public void LoginToFacebook(View view){
-        // Find the person based off of their usename
-        Toast.makeText(this, "Logged In to Facebook", Toast.LENGTH_LONG).show();
-
-    }
-
     public void CreateNewAccount(View view) {
+        if(!ShutOffButtons) {
+            findViewById(R.id.progress_bar).setVisibility(View.VISIBLE);
+            ShutOffButtons = true;
 
-        final String username = userNameEditText.getText().toString().trim();
-        final String password = passwordEditText.getText().toString().trim();
+            final String username = userNameEditText.getText().toString().trim();
+            final String password = passwordEditText.getText().toString().trim();
 
-        if (checkIfValidInputs(username, password)){
+            if (checkIfValidInputs(username, password)) {
 
-            mAuth.createUserWithEmailAndPassword(username, password)
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            Log.d("MainActivity", "createUserWithEmail:onComplete:" + task.isSuccessful());
+                mAuth.createUserWithEmailAndPassword(username, password)
+                        .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                Log.d("MainActivity", "createUserWithEmail:onComplete:" + task.isSuccessful());
 
-                            // SHOULD PUT A LOADING ANIMATION
+                                // SHOULD PUT A LOADING ANIMATION
 
-                            // If sign in fails, display a message to the user. If sign in succeeds
-                            // the auth state listener will be notified and logic to handle the
-                            // signed in user can be handled in the listener.
-                            if (!task.isSuccessful()) {
-                                Toast.makeText(getApplicationContext(), "Was not able to create new user", Toast.LENGTH_LONG).show();
-                                Log.i("MainActivity", "We could not create the user\n Username: " + username + "\nPassword: " + password);
+                                // If sign in fails, display a message to the user. If sign in succeeds
+                                // the auth state listener will be notified and logic to handle the
+                                // signed in user can be handled in the listener.
+                                if (!task.isSuccessful()) {
+                                    Toast.makeText(getApplicationContext(), "Was not able to " +
+                                                    "create new user.\nEmail is already taken\nUse 'Login' " +
+                                                    "button if you have already created an account",
+                                            Toast.LENGTH_LONG).show();
+
+                                    Log.i("MainActivity", "We could not create the user\n Username: " +
+                                            username + "\nPassword: " + password);
+
+                                    findViewById(R.id.progress_bar).setVisibility(View.GONE);
+                                    ShutOffButtons = false;
+                                }
+
+                                // ...
                             }
-
-                            // ...
-                        }
-                    });
+                        });
+            }
+        } else {
+            findViewById(R.id.progress_bar).setVisibility(View.GONE);
+            ShutOffButtons = false;
         }
     }
 
@@ -368,24 +390,23 @@ public class MainActivity extends FragmentActivity {
         }
 
         callbackManager.onActivityResult(requestCode, resultCode, data);
+
     }
 
     private void handleSignInResult(GoogleSignInResult result) {
         Log.d("MainActivity", "handleSignInResult:" + result.isSuccess());
         if (result.isSuccess()) {
+            GoogleSignInAccount acct = result.getSignInAccount();
 
-            Intent intent = new Intent(getApplicationContext(), FirstScreen.class);
-            startActivity(intent);
-            // Signed in successfully, show authenticated UI.
-            //GoogleSignInAccount acct = result.getSignInAccount();
-            //mStatusTextView.setText(getString(R.string.signed_in_fmt, acct.getDisplayName()));
-            //updateUI(true);
+            MoveToFirstScreen();
+            ShutOffButtons = false;
+
         } else {
-
+            ShutOffButtons = false;
             Toast.makeText(getApplicationContext(), "Gmail did not work", Toast.LENGTH_LONG).show();
             Log.i("MainActivity", "Was not able to log into Gmail");
-            // Signed out, show unauthenticated UI.
-            //updateUI(false);
+
+            findViewById(R.id.progress_bar).setVisibility(View.GONE);
         }
     }
 
@@ -396,6 +417,15 @@ public class MainActivity extends FragmentActivity {
             mAuth.removeAuthStateListener(mAuthListener);
         }
     }
+
+    public void MoveToFirstScreen(){
+
+        Intent intent = new Intent(getApplicationContext(), FirstScreen.class);
+        startActivity(intent);
+
+        findViewById(R.id.progress_bar).setVisibility(View.GONE);
+    }
+
 
 
 }
