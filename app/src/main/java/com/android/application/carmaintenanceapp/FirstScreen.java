@@ -35,7 +35,7 @@ public class FirstScreen extends AppCompatActivity {
         }
 
         public Object getItem(int position) {
-            return null;
+            return texts[position];
         }
 
         public long getItemId(int position) {

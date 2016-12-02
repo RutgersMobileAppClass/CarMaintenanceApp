@@ -61,7 +61,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="e0ed565dde9c4db338afe61902ba09ac7552c7aa">
+        sha1="e5f80369617b738b23e95e130bd72a32b8434334">
         <dex dex="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_b34cc8e9857de5738602bd48ef1933338025cdd5/classes.dex" />
     </item>
     <item
@@ -111,15 +111,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.17.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="23c7c34bfb3cdc0599d49e581486b179bc6b2eee">
-        <dex dex="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.facebook.android-facebook-android-sdk-4.17.0_4305f8c42f257ba9b1579cdc003b798197c8484e/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/mitchellwalier/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.0.1/support-annotations-25.0.1.jar"
         jumboMode="true"
         optimize="true"
@@ -133,7 +124,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="8bdebe23523ad2931883721112d5c74ff9e878b1">
+        sha1="04673ab160be28aff2617180095ef4b2367bce85">
         <dex dex="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_c9fc70b91f45e3a0297641b29bfe409bfe9ffc46/classes.dex" />
     </item>
     <item
@@ -171,6 +162,15 @@
         revision="24.0.3"
         sha1="c0bd6ffb002a85b5e7cad29f8558d1cc59539679">
         <dex dex="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_1050b54ad572dc72dd2e14514331ed307531541e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.18.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="43a08f2cc1bc8e9678b5a1740f3b91b50ab50ac6">
+        <dex dex="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.facebook.android-facebook-android-sdk-4.18.0_0cf33493f87f4cd1c47215b728a4199da5a3e850/classes.dex" />
     </item>
     <item
         is-multidex="true"
