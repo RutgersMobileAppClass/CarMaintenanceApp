@@ -60,6 +60,51 @@ public class MainActivity extends FragmentActivity {
 
     // NEED TO CREATE A FIREBASE INSTANCE THAT IS STATIC ACROSS THE ENTIRE APP TO SAVE AND LOAD SHIT!
 
+    public static class car {
+        private String current_mileage;
+        private String starting_mileage;
+        private String last_maintenance_mileage;
+        private String total_expenses;
+        private ArrayList<String> type_of_expenses;
+        private ArrayList<String> expenses;
+        private String initial_investment;    // How much you payed for the car
+        private String date_of_next_inspection;
+
+        public String getCurrent_mileage(){ return current_mileage; }
+        public String getStarting_mileage() {return starting_mileage; }
+        public String getLast_maintenance_mileage() {return last_maintenance_mileage;}
+        public String getTotal_expenses() { return total_expenses;}
+        public String getInitial_investment() { return initial_investment;}
+        public String getDate_of_next_inspection() {return date_of_next_inspection;}
+        public ArrayList<String> getType_of_expenses() { return type_of_expenses; }
+        public ArrayList<String> getExpenses() { return expenses;}
+
+        public void setCurrent_mileage(String current_mileage) {
+            this.current_mileage = current_mileage;
+        }
+        public void setDate_of_next_inspection(String date_of_next_inspection) {
+            this.date_of_next_inspection = date_of_next_inspection;
+        }
+        public void setInitial_investment(String initial_investment) {
+            this.initial_investment = initial_investment;
+        }
+        public void setLast_maintenance_mileage(String last_maintenance_mileage) {
+            this.last_maintenance_mileage = last_maintenance_mileage;
+        }
+        public void setStarting_mileage(String starting_mileage) {
+            this.starting_mileage = starting_mileage;
+        }
+        public void setTotal_expenses(String total_expenses) {
+            this.total_expenses = total_expenses;
+        }
+        public void setType_of_expenses(ArrayList<String> type_of_expenses) {
+            this.type_of_expenses = type_of_expenses;
+        }
+        public void setExpenses(ArrayList<String> expenses) {
+            this.expenses = expenses;
+        }
+
+    }
 
     public static class LoadedPerson {
 
@@ -68,11 +113,7 @@ public class MainActivity extends FragmentActivity {
         // https://developer.android.com/samples/index.html
         private String username;
         private String email;
-        private int milage;
-        private ArrayList<Float> expenses;
-        private ArrayList<String> type_of_expense;
         private ArrayList<String> car_models;
-        private float total_expenses;
 
 
         public LoadedPerson (String _name, ArrayList<String> _car_models){
@@ -88,14 +129,9 @@ public class MainActivity extends FragmentActivity {
         public String getEmail(){
             return  email;
         }
-        public int getMilage(){
-            return milage;
-        }
-        public ArrayList<Float> getExpenses() {return expenses;}
-        public ArrayList<String> getType_of_expense() {return type_of_expense;}
-        public ArrayList<String> getCar_models() {return car_models;}
-        public float getTotal_expenses() {return total_expenses;}
 
+
+        public ArrayList<String> getCar_models() {return car_models;}
     }
 
     @Override
