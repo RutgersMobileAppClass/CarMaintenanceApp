@@ -3,318 +3,318 @@
 
     <item
         is-multidex="true"
-        jar="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/10.0.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="eb0d830e3eabb9deb9ec44869cf7ac7ea1ad794c">
-        <dex dex="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-common-10.0.1_7705c9eca86cfe93c7da669371e170531b59172d/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.0.1/jars/libs/internal_impl-25.0.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="f83b00041ecfba705603fec40363416c7de69719">
-        <dex dex="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_7517460f4f0deaaad99537ffd09c6f68ddcba4ba/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.0.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="486371f97baad8e607f332f20fee1d3dd00a731a">
-        <dex dex="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-iid-10.0.1_52fe33ce9d8b99d891a0739cdf117a91dc121dd7/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.0.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="772bed2d992b67b9d0327f766cc95cd63031dcd3">
-        <dex dex="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-25.0.1_0504aaf0c3d1aa9dba9c882825a83f75ec204dff/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.0.1/jars/libs/internal_impl-25.0.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="3af8cc51ef7088e56f132780da8c0bd858b6a6ad">
-        <dex dex="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_d8224a5545faa21dfededb88146e25f758ba1f10/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.0.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="b24e1c688744078e1fa833ffadf696794761bbe5">
-        <dex dex="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-25.0.1_1dca46c13d1daa58f2e99ac2b3c6fd1ed6a26737/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="e5f80369617b738b23e95e130bd72a32b8434334">
-        <dex dex="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_b34cc8e9857de5738602bd48ef1933338025cdd5/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.0.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="26c6eef571592c91f29e56fda0bac73321de0c92">
-        <dex dex="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-25.0.1_3a9e97f87010acd137bf53fe0019d2edd0cac066/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.android.support/customtabs/25.0.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="94ba691efc31bf53264db0716d9c9ec03843ea31">
-        <dex dex="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-customtabs-25.0.0_21038ae1828a7b907c40d20361a2f14cb0202ecd/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.0.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
-        <dex dex="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-basement-10.0.1_2a6c2f0315ec26a2d29cfeccffed50d3ce59df2f/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.0.1/jars/libs/internal_impl-25.0.1.jar"
+        jar="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.0.1/jars/libs/internal_impl-25.0.1.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
         sha1="c5b7145fb34779b6639147b8f2f8dd77c0db771b">
-        <dex dex="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_bfafb5d16da7a4f84b572494180aa64ca79837ea/classes.dex" />
+        <dex dex="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_4b8e6b93daa2eea0f4b48e4634e38c246d438b04/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/mitchellwalier/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-applinks/1.4.0/8ad21bf21784dacce5f2043afb97218cc377e835/bolts-applinks-1.4.0.jar"
+        jar="/home/wayne/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-applinks/1.4.0/8ad21bf21784dacce5f2043afb97218cc377e835/bolts-applinks-1.4.0.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
         sha1="8ad21bf21784dacce5f2043afb97218cc377e835">
-        <dex dex="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/bolts-applinks-1.4.0_39c8b7c9994f108edbad623d5c65f23bf78a327d/classes.dex" />
+        <dex dex="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/bolts-applinks-1.4.0_902f1477dd77a653aebe1caae32706fd81418efc/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/mitchellwalier/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.0.1/support-annotations-25.0.1.jar"
+        jar="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="a09194311f8f89c3e6db09d79f50897a889d615e">
-        <dex dex="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.0.1_194ab87b0dcc8bd19e5e82786f597b36e006c6bf/classes.dex" />
+        sha1="ff0bbd2629527fa4314ae42157184cb3a15f13a3">
+        <dex dex="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_a812732564ae22685fb81656bd43095ac7d594ae/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jar="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.0.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="04673ab160be28aff2617180095ef4b2367bce85">
-        <dex dex="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_c9fc70b91f45e3a0297641b29bfe409bfe9ffc46/classes.dex" />
+        sha1="486371f97baad8e607f332f20fee1d3dd00a731a">
+        <dex dex="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-iid-10.0.1_96277af239f070059d3bbea0cd7e6aa094dc1a37/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/10.0.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="6116e0e7069de7fc259aac8e08b84f32c2038231">
-        <dex dex="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-impl-10.0.1_16b4081f810c26b718585ebff1a466f332001983/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database-connection/10.0.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="8010ae6ed32828a145b25ec97bc07b7a83c6318f">
-        <dex dex="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-database-connection-10.0.1_505b9046643c081bcd1a7f6a7f8eb59290df297f/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="f7ac4b327fdb9e2ee386f5adc46164927658de4b">
-        <dex dex="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-25.0.1_145cf32ed0ea945f53248e4a288adf3b2ac89102/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.0.1/jars/libs/internal_impl-25.0.1.jar"
+        jar="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.0.1/jars/libs/internal_impl-25.0.1.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
         sha1="c0bd6ffb002a85b5e7cad29f8558d1cc59539679">
-        <dex dex="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_1050b54ad572dc72dd2e14514331ed307531541e/classes.dex" />
+        <dex dex="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_a5f72608f0c5cf8bd40983930120eb5c04eafec7/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.18.0/jars/classes.jar"
+        jar="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database-connection/10.0.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="43a08f2cc1bc8e9678b5a1740f3b91b50ab50ac6">
-        <dex dex="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.facebook.android-facebook-android-sdk-4.18.0_0cf33493f87f4cd1c47215b728a4199da5a3e850/classes.dex" />
+        sha1="8010ae6ed32828a145b25ec97bc07b7a83c6318f">
+        <dex dex="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-database-connection-10.0.1_afa971ffb1884ce5137b7222f982a21e3d3f5128/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.0.1/jars/libs/internal_impl-25.0.1.jar"
+        jar="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.0.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="e5343c9d19cb19ff55f6b268c7f3fe8c9d224f6f">
-        <dex dex="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_8a653ad7038c6a3fef3ac05afcd048beddc2d968/classes.dex" />
+        sha1="26c6eef571592c91f29e56fda0bac73321de0c92">
+        <dex dex="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-25.0.1_b74e5a09271498f2580fd2a8e3e563b9c449d103/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.0.1/jars/classes.jar"
+        jar="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.0.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="00d4c8eebf2b681073c72a26bd0849549e51c7cb">
-        <dex dex="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-25.0.1_0fc4a8de0bdeaddeeb0809695ebdc2b15109759b/classes.dex" />
+        sha1="772bed2d992b67b9d0327f766cc95cd63031dcd3">
+        <dex dex="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-25.0.1_681f73afc0f6348595376d844a3ecf06be029b71/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/mitchellwalier/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
-        <dex dex="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/bolts-tasks-1.4.0_6563cfb694f9289c53558ee67b1ec7f70dcca738/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/10.0.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="e2185aff89caeb337b1ffc36d5e525d8318e7cfe">
-        <dex dex="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-auth-10.0.1_e52f18fb1912794522a0788d2f436878150a006e/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.0.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
-        <dex dex="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tasks-10.0.1_5f0a0e312b8de144d2da669d84007dd0a9fdd163/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.0.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-25.0.1_558cfff6f23beacf76324afbcae031de0e165a7c/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="25438f55fc6d906a0e72f30b21487541430ede43">
-        <dex dex="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-base-10.0.1_6aa9d62faa68f8232771a3ca00b624d3279dd7ef/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.0.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="433f4d6aa5f21f19552afe0e6c5eff0fedba73ad">
-        <dex dex="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-10.0.1_441bbd93a50c109d55ab48c9af1ea2092ab25a48/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Applications/Android Studio.app/Contents/gradle/m2repository/com/google/code/gson/gson/2.2.4/gson-2.2.4.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="a60a5e993c98c864010053cb901b7eab25306568">
-        <dex dex="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/gson-2.2.4_d0ce76b63ce905fbab3c5d385c8e1b8692010f19/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth/10.0.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="9cca2818594cc5348806d6662133491e7ea0fa8d">
-        <dex dex="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-auth-10.0.1_83ecbc25357bb7939c276987ed7088608e37d320/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database/10.0.1/jars/classes.jar"
+        jar="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database/10.0.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
         sha1="8f128aeeb7e31271b28a7adb9dac1f3a6ed9f5e7">
-        <dex dex="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-database-10.0.1_2d9e988680670a287080adc3c1d18c3cdd7c6500/classes.dex" />
+        <dex dex="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-database-10.0.1_29f10ddd2350ce778fd2cd823ea1d2ae474626e1/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.0.1/jars/classes.jar"
+        jar="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.18.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="6a1479afe9f1b3645e1cd9a87318976893472818">
-        <dex dex="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-25.0.1_ae53e8139166eee14a17bd8f321c0e782e611862/classes.dex" />
+        sha1="43a08f2cc1bc8e9678b5a1740f3b91b50ab50ac6">
+        <dex dex="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.facebook.android-facebook-android-sdk-4.18.0_802ae9f85fb1aa4f9874c000ac559180c8a63c4b/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.0.1/jars/classes.jar"
+        jar="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.0.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="51eba4a4dd73044f90a9d58dd7ca34adbebfcf4e">
-        <dex dex="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-25.0.1_682ce4d58535eac7c6f87d2e65a309723fbf3fd2/classes.dex" />
+        sha1="433f4d6aa5f21f19552afe0e6c5eff0fedba73ad">
+        <dex dex="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-10.0.1_20f895a2d44aa90a8e39fdd0f00e86889c1ab357/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth-base/10.0.1/jars/classes.jar"
+        jar="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.0.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="e96c6974cf924e7ee3b230e6847d5731423388c9">
-        <dex dex="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-auth-base-10.0.1_8662c73ccb40a6f84254728d317dc580e3fdca25/classes.dex" />
+        sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
+        <dex dex="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-basement-10.0.1_00b01787f82c1c12b7c63360752576a81f11bc73/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/25.0.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="8a372c4191f80489770a231f7be4820b204b886a">
-        <dex dex="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-cardview-v7-25.0.0_62afe51f4bb956513862d9630110c3d36c85dac0/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.0.1/jars/classes.jar"
+        jar="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.0.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
         sha1="bc7e99e8d0fc279a05aa91378530f467ad62d443">
-        <dex dex="/Users/mitchellwalier/GitHub/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-25.0.1_bc9301e83ecf9a21df9641ebb08282284492aed9/classes.dex" />
+        <dex dex="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-25.0.1_1cc3cd4659d388c5ad5c49701dbb637a1615167b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="e2185aff89caeb337b1ffc36d5e525d8318e7cfe">
+        <dex dex="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-auth-10.0.1_0f606c996378815c61f7be6e0416d56f3a08b2a4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="00d4c8eebf2b681073c72a26bd0849549e51c7cb">
+        <dex dex="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-25.0.1_d09eafb2f4663b716c1d4f3098c85b7f32b13ca9/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.0.1/jars/libs/internal_impl-25.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="3af8cc51ef7088e56f132780da8c0bd858b6a6ad">
+        <dex dex="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_cb3bc2f8ea6181cea32038dae97ee5d2bddfa1d0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/wayne/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/bolts-tasks-1.4.0_8c96f497598ddb64a6e5082d4b1e6b515aa51985/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/25.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="8a372c4191f80489770a231f7be4820b204b886a">
+        <dex dex="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-cardview-v7-25.0.0_60dfe51a413077eb91dd5f881efe52cddf015db2/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.android.support/customtabs/25.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="94ba691efc31bf53264db0716d9c9ec03843ea31">
+        <dex dex="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-customtabs-25.0.0_188c90f92c9410c2aaeab7d2b65b1900bf66896d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/wayne/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/25.0.1/support-annotations-25.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="a09194311f8f89c3e6db09d79f50897a889d615e">
+        <dex dex="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.0.1_c1488e72298e4aac15dbbd5ba17033f8347a4b6c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="25438f55fc6d906a0e72f30b21487541430ede43">
+        <dex dex="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-base-10.0.1_005aca089485920a1b0912b4f7d8c1ffeb74b694/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
+        <dex dex="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tasks-10.0.1_dfdba9c4b237cdbe5fe97aa8201b6cef3e080317/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.google.firebase/firebase-auth/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="9cca2818594cc5348806d6662133491e7ea0fa8d">
+        <dex dex="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-auth-10.0.1_d5cbd9ea46958d4826f1c3647a1899b940d43260/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="f7ac4b327fdb9e2ee386f5adc46164927658de4b">
+        <dex dex="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-25.0.1_c62ccd601cca6c9f48b5ee224fc95e5427e73821/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth-base/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="e96c6974cf924e7ee3b230e6847d5731423388c9">
+        <dex dex="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-auth-base-10.0.1_687293e06cd27af0d908dba45984555e92582292/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.0.1/jars/libs/internal_impl-25.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="f83b00041ecfba705603fec40363416c7de69719">
+        <dex dex="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_5e9b0f939c9d3ae303656ba3c3903905c262535c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="6116e0e7069de7fc259aac8e08b84f32c2038231">
+        <dex dex="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-impl-10.0.1_0671e59b71849d24d0742a86258c68618e391f89/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="51eba4a4dd73044f90a9d58dd7ca34adbebfcf4e">
+        <dex dex="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-25.0.1_3d61d33904cfc97cbbc8ae0fac8f0af5ab05cf5d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.0.1/jars/libs/internal_impl-25.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="e5343c9d19cb19ff55f6b268c7f3fe8c9d224f6f">
+        <dex dex="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_ccb94d9c491b3dcb5a389b5399d22e2a2c8fffa1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="b24e1c688744078e1fa833ffadf696794761bbe5">
+        <dex dex="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-25.0.1_b83dbe1e63af64c3dab77394e75766b2718c1cd4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/10.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="eb0d830e3eabb9deb9ec44869cf7ac7ea1ad794c">
+        <dex dex="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-common-10.0.1_03c4955c1b22733589aba091c92bb19bfbb4ca44/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/opt/android-studio/gradle/m2repository/com/google/code/gson/gson/2.2.4/gson-2.2.4.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="a60a5e993c98c864010053cb901b7eab25306568">
+        <dex dex="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/gson-2.2.4_ee0179183cc12d87b762899f0e71bd373d3fee7f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="126f6ce8f43e33c6e6d0d073d322aef622a3a511">
+        <dex dex="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_7b15e90a9d18f98647c3e63fe249dd9752c0e473/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-25.0.1_2bcfe17add8bab2d2fa9262999e0be9bd50041f5/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="6a1479afe9f1b3645e1cd9a87318976893472818">
+        <dex dex="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-25.0.1_66a83d812edd0933bf8152fefefbc0a52aeba076/classes.dex" />
     </item>
 
 </items>
