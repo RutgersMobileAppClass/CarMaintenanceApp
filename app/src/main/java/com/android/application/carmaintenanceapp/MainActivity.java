@@ -3,7 +3,6 @@ package com.android.application.carmaintenanceapp;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -34,10 +33,16 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import com.facebook.FacebookSdk;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.regex.Matcher;
@@ -58,9 +63,7 @@ public class MainActivity extends FragmentActivity {
     Boolean ShutOffButtons;
 
 
-    // NEED TO CREATE A FIREBASE INSTANCE THAT IS STATIC ACROSS THE ENTIRE APP TO SAVE AND LOAD SHIT!
-
-    public static class car {
+    public static class Car implements Serializable{
         private String current_mileage;
         private String starting_mileage;
         private String last_maintenance_mileage;
@@ -69,6 +72,7 @@ public class MainActivity extends FragmentActivity {
         private ArrayList<String> expenses;
         private String initial_investment;    // How much you payed for the car
         private String date_of_next_inspection;
+        private String car_name;
 
         public String getCurrent_mileage(){ return current_mileage; }
         public String getStarting_mileage() {return starting_mileage; }
@@ -76,9 +80,11 @@ public class MainActivity extends FragmentActivity {
         public String getTotal_expenses() { return total_expenses;}
         public String getInitial_investment() { return initial_investment;}
         public String getDate_of_next_inspection() {return date_of_next_inspection;}
+        public String getCar_name() {return car_name;}
         public ArrayList<String> getType_of_expenses() { return type_of_expenses; }
         public ArrayList<String> getExpenses() { return expenses;}
 
+        public void setCar_name(String _car_name) {this.car_name = _car_name;}
         public void setCurrent_mileage(String current_mileage) {
             this.current_mileage = current_mileage;
         }
@@ -106,19 +112,19 @@ public class MainActivity extends FragmentActivity {
 
     }
 
-    public static class LoadedPerson {
+    public static class LoadedPerson implements Serializable {
 
         // WE SHOULD NOT STORE THE USER'S username AND password ON THE DEVICE OR IN PLAIN TEXT ON OUR FIREBASE!!
         // https://developer.android.com/reference/android/accounts/AccountManager.html
         // https://developer.android.com/samples/index.html
         private String username;
         private String email;
-        private ArrayList<String> car_models;
+        private ArrayList<Car> cars;
 
 
-        public LoadedPerson (String _name, ArrayList<String> _car_models){
-            this.username = _name;
-            this.car_models = _car_models;
+        public LoadedPerson (String _email){
+            this.email = _email;
+            cars = new ArrayList<Car>();
         }
 
         public LoadedPerson() {}
@@ -129,9 +135,11 @@ public class MainActivity extends FragmentActivity {
         public String getEmail(){
             return  email;
         }
+        public ArrayList<Car> getCars() {return cars;}
 
-
-        public ArrayList<String> getCar_models() {return car_models;}
+        public void setUsername(String _username) {this.username = _username;}
+        public void setEmail(String _email) {this.email = _email;}
+        public void setCars(ArrayList<Car> _cars) {this.cars = _cars;}
     }
 
     @Override
@@ -160,7 +168,7 @@ public class MainActivity extends FragmentActivity {
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+            public void onAuthStateChanged(FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
 
@@ -169,7 +177,7 @@ public class MainActivity extends FragmentActivity {
                     editor.apply();
 
                     // User is signed in
-                    MoveToFirstScreen();
+                    MoveToFirstScreen(user.getEmail());
                     ShutOffButtons = false;
 
                     Log.d("MainActivity", "onAuthStateChanged:signed_in:" + user.getUid());
@@ -208,20 +216,13 @@ public class MainActivity extends FragmentActivity {
 
                         try
                         {
-                            String email       =   object.getString("email");
-                            String name        =   object.getString("name");
-                            String first_name  =   object.optString("first_name");
-                            String last_name   =   object.optString("last_name");
-
-                            Log.i("Facebook Login", email + " " + first_name + " " + last_name + " " + name);
-                            Toast.makeText(getApplicationContext(), "Mother of god it worked!", Toast.LENGTH_LONG).show();
                             LoginManager.getInstance().logOut();
 
                             SharedPreferences.Editor editor = file.edit();
                             editor.putString("recentUserName", "");
                             editor.apply();
 
-                            MoveToFirstScreen();
+                            MoveToFirstScreen(object.getString("email"));
                             ShutOffButtons = false;
 
                         }
@@ -280,7 +281,7 @@ public class MainActivity extends FragmentActivity {
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .enableAutoManage(this, new GoogleApiClient.OnConnectionFailedListener() {
                     @Override
-                    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+                    public void onConnectionFailed( ConnectionResult connectionResult) {
                         // connection failed, should be handled
                         Log.i("MainActivity", "Gmail connection failed");
                         findViewById(R.id.progress_bar).setVisibility(View.GONE);
@@ -313,7 +314,7 @@ public class MainActivity extends FragmentActivity {
                 mAuth.signInWithEmailAndPassword(username, password)
                         .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                             @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
+                            public void onComplete( Task<AuthResult> task) {
                                 Log.d("MainActivity", "signInWithEmail:onComplete:" + task.isSuccessful());
                                 // If sign in fails, display a message to the user. If sign in succeeds
                                 // the auth state listener will be notified and logic to handle the
@@ -328,7 +329,7 @@ public class MainActivity extends FragmentActivity {
 
                                 }
 
-                                MoveToFirstScreen();
+                                MoveToFirstScreen(username);
 
                             }
                         });
@@ -384,7 +385,7 @@ public class MainActivity extends FragmentActivity {
                 mAuth.createUserWithEmailAndPassword(username, password)
                         .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                             @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
+                            public void onComplete( Task<AuthResult> task) {
                                 Log.d("MainActivity", "createUserWithEmail:onComplete:" + task.isSuccessful());
 
                                 // SHOULD PUT A LOADING ANIMATION
@@ -434,7 +435,7 @@ public class MainActivity extends FragmentActivity {
         if (result.isSuccess()) {
             GoogleSignInAccount acct = result.getSignInAccount();
 
-            MoveToFirstScreen();
+            MoveToFirstScreen(acct.getEmail());
             ShutOffButtons = false;
 
         } else {
@@ -454,12 +455,44 @@ public class MainActivity extends FragmentActivity {
         }
     }
 
-    public void MoveToFirstScreen(){
+    public void MoveToFirstScreen(String email){
+        String[] split = email.split("[@._]");
+        final String named_email = split[0] + "-" + split[1] + "-" + split[2];
 
-        Intent intent = new Intent(getApplicationContext(), FirstScreen.class);
-        startActivity(intent);
 
-        findViewById(R.id.progress_bar).setVisibility(View.GONE);
+        Log.i("MainActivity", "The email passed to the change screen function was :" + named_email);
+
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        final DatabaseReference myRef = database.getReference(named_email);
+
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                LoadedPerson person;
+                if (dataSnapshot.exists()){
+                    // Get everything from the person
+                    person = dataSnapshot.getValue(LoadedPerson.class);
+                } else {
+                    // Make a new person in database
+                    person = new LoadedPerson(named_email);
+                    myRef.setValue(person);
+                }
+
+                Intent intent = new Intent(getApplicationContext(), FirstScreen.class);
+                intent.putExtra("LoadedPerson", person);
+                startActivity(intent);
+
+                findViewById(R.id.progress_bar).setVisibility(View.GONE);
+
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
+            }
+        });
+
     }
 
 
