@@ -63,8 +63,6 @@ public class MainActivity extends FragmentActivity {
     Boolean ShutOffButtons;
 
 
-    // NEED TO CREATE A FIREBASE INSTANCE THAT IS STATIC ACROSS THE ENTIRE APP TO SAVE AND LOAD SHIT!
-
     public static class Car implements Serializable{
         private String current_mileage;
         private String starting_mileage;
@@ -74,6 +72,7 @@ public class MainActivity extends FragmentActivity {
         private ArrayList<String> expenses;
         private String initial_investment;    // How much you payed for the car
         private String date_of_next_inspection;
+        private String car_name;
 
         public String getCurrent_mileage(){ return current_mileage; }
         public String getStarting_mileage() {return starting_mileage; }
@@ -81,9 +80,11 @@ public class MainActivity extends FragmentActivity {
         public String getTotal_expenses() { return total_expenses;}
         public String getInitial_investment() { return initial_investment;}
         public String getDate_of_next_inspection() {return date_of_next_inspection;}
+        public String getCar_name() {return car_name;}
         public ArrayList<String> getType_of_expenses() { return type_of_expenses; }
         public ArrayList<String> getExpenses() { return expenses;}
 
+        public void setCar_name(String _car_name) {this.car_name = _car_name;}
         public void setCurrent_mileage(String current_mileage) {
             this.current_mileage = current_mileage;
         }
@@ -118,11 +119,12 @@ public class MainActivity extends FragmentActivity {
         // https://developer.android.com/samples/index.html
         private String username;
         private String email;
-        private ArrayList<Car> car_models;
+        private ArrayList<Car> cars;
 
 
         public LoadedPerson (String _email){
             this.email = _email;
+            cars = new ArrayList<Car>();
         }
 
         public LoadedPerson() {}
@@ -133,11 +135,11 @@ public class MainActivity extends FragmentActivity {
         public String getEmail(){
             return  email;
         }
-        public ArrayList<Car> getCar_models() {return car_models;}
+        public ArrayList<Car> getCars() {return cars;}
 
         public void setUsername(String _username) {this.username = _username;}
         public void setEmail(String _email) {this.email = _email;}
-        public void setCar_models(ArrayList<Car> _cars) {this.car_models = _cars;}
+        public void setCars(ArrayList<Car> _cars) {this.cars = _cars;}
     }
 
     @Override
@@ -467,10 +469,13 @@ public class MainActivity extends FragmentActivity {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+
                 LoadedPerson person;
                 if (dataSnapshot.exists()){
+                    // Get everything from the person
                     person = dataSnapshot.getValue(LoadedPerson.class);
                 } else {
+                    // Make a new person in database
                     person = new LoadedPerson(named_email);
                     myRef.setValue(person);
                 }
