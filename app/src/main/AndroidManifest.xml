@@ -14,20 +14,19 @@
 
         <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
         <activity android:name=".MainActivity">
-            <!-- UNCOMMENT THIS BEFORE PUSHING TO GITHUB -->
-            <!--<intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
-        </activity>
-
-
-        <activity android:name=".FirstScreen">
-            <!-- GET RID OF THIS BEFORE PUSHING TO GITHUB -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+
+        <activity android:name=".FirstScreen">
+            <!-- GET RID OF THIS BEFORE PUSHING TO GITHUB
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter> -->
         </activity>
 
         <activity android:name="com.facebook.FacebookActivity"
