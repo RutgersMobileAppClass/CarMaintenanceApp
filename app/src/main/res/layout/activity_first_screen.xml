@@ -55,20 +55,6 @@
         android:id="@+id/carList"
         android:layout_weight="1" />
 
-    <!--
-     NEEED TO FIGURE OUT WHY ONLY SOME OF THE LETTERS ARE SHOWING
-    <GridView
-        android:layout_width="match_parent"
-        android:layout_height="0px"
-        android:id="@+id/carList"
-        android:gravity="center"
-        android:columnWidth="100dp"
-        android:numColumns="3"
-        android:verticalSpacing="10dp"
-        android:horizontalSpacing="10dp"
-        android:stretchMode="columnWidth"
-        android:layout_weight="1"/>
-    -->
 
     <Button
         android:layout_width="wrap_content"

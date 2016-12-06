@@ -77,47 +77,6 @@ public class FirstScreen extends AppCompatActivity {
 
     }
 
-    /*public class MyAdapter extends BaseAdapter {
-
-        private Context context;
-        private ArrayList<String> texts;
-
-        public MyAdapter(Context context, ArrayList<String> array) {
-            this.context = context;
-            texts = array;
-        }
-
-        public int getCount() {
-            return 3;
-        }
-
-        public Object getItem(int position) {
-            //return texts[position];
-            return texts.get(position);
-        }
-
-        public long getItemId(int position) {
-            return 0;
-        }
-
-        public View getView(int position, View convertView, ViewGroup parent) {
-            TextView tv;
-
-            if (convertView == null) {
-                tv = new TextView(context);
-                tv.setLayoutParams(new GridView.LayoutParams(150, 150));
-            }
-
-            else {
-                tv = (TextView) convertView;
-            }
-
-            //tv.setText(texts[position]);
-            tv.setText(texts.get(position));
-            return tv;
-        }
-    }*/
-
     String TAG = "First Screen";
 
     @Override
