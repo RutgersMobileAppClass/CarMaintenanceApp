@@ -25,7 +25,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="6425f6fd8984f17cae9274a53e96c70e48bc16ac">
+        sha1="2c48daebde3ace781f12c379bd164cd56de7d742">
         <dex dex="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_a812732564ae22685fb81656bd43095ac7d594ae/classes.dex" />
     </item>
     <item
@@ -151,7 +151,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="1e0121dec487de36576ce64ba6144d7fe06d5854">
+        sha1="c08d302e630ebc5e3ec2d1524e8ee5b419f02d7e">
         <dex dex="/home/wayne/AndroidProjects/CarMaintenanceApp/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_7b15e90a9d18f98647c3e63fe249dd9752c0e473/classes.dex" />
     </item>
     <item

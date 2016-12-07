@@ -82,6 +82,12 @@ public class MainActivity extends FragmentActivity {
             this.estimatedValue = _estimatedValue;
         }
 
+        //YO MITCH MAKING AN ARRAY OF MAINTENANCE ISSUES THAT ARE COMING UP FOR SECOND SCREEN
+        private ArrayList<String> upcoming_maintenance_issues;
+        public ArrayList<String> getUpcomingMaintenanceIssues() {
+            return upcoming_maintenance_issues;
+        }
+
         public String getCurrent_mileage(){ return current_mileage; }
         public String getStarting_mileage() {return starting_mileage; }
         public String getLast_maintenance_mileage() {return last_maintenance_mileage;}
@@ -91,6 +97,7 @@ public class MainActivity extends FragmentActivity {
         public String getCar_name() {return car_name;}
         public ArrayList<String> getType_of_expenses() { return type_of_expenses; }
         public ArrayList<String> getExpenses() { return expenses;}
+        //MITCH WE COULD POSSIBLY ADD STUFF LIKE OIL CHANGE, TIRE CHANGE, ETC.
 
         public void setCar_name(String _car_name) {this.car_name = _car_name;}
         public void setCurrent_mileage(String current_mileage) {
@@ -337,7 +344,9 @@ public class MainActivity extends FragmentActivity {
 
                                 }
 
-                                MoveToFirstScreen(username);
+                                else {
+                                    MoveToFirstScreen(username);
+                                }
 
                             }
                         });
@@ -412,6 +421,10 @@ public class MainActivity extends FragmentActivity {
 
                                     findViewById(R.id.progress_bar).setVisibility(View.GONE);
                                     ShutOffButtons = false;
+                                }
+
+                                else {
+                                    MoveToFirstScreen(username);
                                 }
 
                                 // ...

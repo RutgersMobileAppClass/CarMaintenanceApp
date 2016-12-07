@@ -48,7 +48,9 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        <activity android:name=".SecondScreen"></activity>
+        <activity android:name=".SecondScreen" />
+        <activity android:name=".FourthScreen" />
+        <activity android:name=".ThirdScreen"></activity>
     </application>
 
 </manifest>

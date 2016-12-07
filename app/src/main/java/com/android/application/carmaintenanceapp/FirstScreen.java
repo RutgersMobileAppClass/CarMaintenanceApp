@@ -121,8 +121,27 @@ public class FirstScreen extends AppCompatActivity {
         carList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                information_array.remove(position);
-                information_array_adapter.notifyDataSetChanged();
+
+                final int temp = position;
+
+                new AlertDialog.Builder(getApplicationContext())
+                        .setTitle("Remove Car")
+                        .setMessage("Are you sure you want to remove this car?\nAll data associated with this car will be lost.")
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                //NEED TO ALSO REMOVE FROM FIREBASE DATABASE
+                                information_array.remove(temp);
+                                information_array_adapter.notifyDataSetChanged();
+                            }
+                        })
+                        .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                // do nothing
+                            }
+                        })
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
+
                 return true;
             }
         });

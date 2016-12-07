@@ -27,7 +27,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/speedometer6"
+            android:id="@+id/odometer6"
             android:text="0"
             android:layout_weight="1"
             android:textSize="40dp"
@@ -37,7 +37,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/speedometer5"
+            android:id="@+id/odometer5"
             android:text="0"
             android:layout_weight="1"
             android:textSize="40dp"
@@ -47,7 +47,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/speedometer4"
+            android:id="@+id/odometer4"
             android:text="0"
             android:layout_weight="1"
             android:textSize="40dp"
@@ -57,7 +57,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/speedometer3"
+            android:id="@+id/odometer3"
             android:text="0"
             android:layout_weight="1"
             android:textSize="40dp"
@@ -67,7 +67,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/speedometer2"
+            android:id="@+id/odometer2"
             android:text="0"
             android:layout_weight="1"
             android:textSize="40dp"
@@ -77,7 +77,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/speedometer1"
+            android:id="@+id/odometer1"
             android:text="0"
             android:layout_weight="1"
             android:textSize="40dp"
@@ -129,7 +129,13 @@
         <ListView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:id="@+id/secondScreenList"
+            android:id="@+id/secondScreenIssuesList"
+            android:layout_weight="1"/>
+
+        <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/secondScreenExpensesList"
             android:layout_weight="1"/>
 
     </LinearLayout>
