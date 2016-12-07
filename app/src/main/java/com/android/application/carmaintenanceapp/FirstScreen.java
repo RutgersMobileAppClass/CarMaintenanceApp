@@ -2,13 +2,17 @@ package com.android.application.carmaintenanceapp;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -22,7 +26,7 @@ import java.util.ArrayList;
 
 public class FirstScreen extends AppCompatActivity {
 
-    private ArrayList<replaceWithCarClass> information_array;
+    private ArrayList<MainActivity.Car> information_array;
     private listAdapter information_array_adapter;
     private ListView carList;
 
@@ -51,14 +55,14 @@ public class FirstScreen extends AppCompatActivity {
         }
     }
 
-    public class listAdapter extends ArrayAdapter<replaceWithCarClass> {
-        public listAdapter(Context context, ArrayList<replaceWithCarClass> listItems) {
+    public class listAdapter extends ArrayAdapter<MainActivity.Car> {
+        public listAdapter(Context context, ArrayList<MainActivity.Car> listItems) {
             super(context, 0, listItems);
         }
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            replaceWithCarClass car = getItem(position);
+            MainActivity.Car car = getItem(position);
 
             if (convertView == null) {
                 convertView = LayoutInflater.from(getContext()).inflate(R.layout.car_list_layout, parent, false);
@@ -68,55 +72,14 @@ public class FirstScreen extends AppCompatActivity {
             TextView car_value = (TextView) convertView.findViewById(R.id.car_value);
             TextView car_expenses = (TextView) convertView.findViewById(R.id.car_expenses);
 
-            car_name.setText(car.carName);
-            car_value.setText(car.estimatedVal);
-            car_expenses.setText(car.expenses);
+            car_name.setText(car.getCar_name());
+            car_value.setText(car.getEstimatedValue());
+            car_expenses.setText(car.getTotal_expenses());
 
             return convertView;
         }
 
     }
-
-    /*public class MyAdapter extends BaseAdapter {
-
-        private Context context;
-        private ArrayList<String> texts;
-
-        public MyAdapter(Context context, ArrayList<String> array) {
-            this.context = context;
-            texts = array;
-        }
-
-        public int getCount() {
-            return 3;
-        }
-
-        public Object getItem(int position) {
-            //return texts[position];
-            return texts.get(position);
-        }
-
-        public long getItemId(int position) {
-            return 0;
-        }
-
-        public View getView(int position, View convertView, ViewGroup parent) {
-            TextView tv;
-
-            if (convertView == null) {
-                tv = new TextView(context);
-                tv.setLayoutParams(new GridView.LayoutParams(150, 150));
-            }
-
-            else {
-                tv = (TextView) convertView;
-            }
-
-            //tv.setText(texts[position]);
-            tv.setText(texts.get(position));
-            return tv;
-        }
-    }*/
 
     String TAG = "First Screen";
 
@@ -125,31 +88,60 @@ public class FirstScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first_screen);
 
-
         carList = (ListView) findViewById(R.id.carList);
-        //INSTEAD OF MAKING A NEW CAR ARRAY HERE, WE WILL LOAD IT IN FROM INTENT DATA
-        replaceWithCarClass carItem = new replaceWithCarClass("Tesla", "$1000", "$100000");
 
-        //array of data (Car name, estimated value, expenses)
-        information_array = new ArrayList<replaceWithCarClass>();
-        information_array.add(carItem);
+        //get LoadedPerson object from log in screen
+        Intent i = getIntent();
+        MainActivity.LoadedPerson person = (MainActivity.LoadedPerson) i.getSerializableExtra("LoadedPerson");
 
+        //array of data (Car name, estimated value, expenses), get from LoadedPerson object that was passed in from log in screen
+        information_array = new ArrayList<MainActivity.Car>();
+        information_array = person.getCars();
+
+        //array adapter stuff
         information_array_adapter = new listAdapter(this, information_array);
         carList.setAdapter(information_array_adapter);
+
         information_array_adapter.notifyDataSetChanged();
 
-        /*
-        //inflate GridView
-        GridView gridView = (GridView) findViewById(R.id.carList);
-        information_array_adapter = new MyAdapter(this, information_array);
-        gridView.setAdapter(information_array_adapter);
-        */
+        //onClickListener for car list
+        //when list item is clicked we want to go to the second screen and pull up details about the car that was clicked
+        carList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                MainActivity.Car clickedCar = information_array.get(position);
+                Intent intent = new Intent(getApplicationContext(), SecondScreen.class);
+                intent.putExtra("clickedCar", clickedCar);
+                startActivity(intent);
+            }
+        });
+
+        //onLongClickListener for car list
+        //delete the car from the car list on a long click
+        carList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                information_array.remove(position);
+                information_array_adapter.notifyDataSetChanged();
+                return true;
+            }
+        });
+
     }
 
-    //TEST FUNCTION TO POPULATE LIST
+    //Add a car to the list
+    //make a new Car object and put into the array, and notify the list adapter
     public void addCar(View view) {
-        replaceWithCarClass testCar = new replaceWithCarClass("test car", "$232", "$1524");
-        information_array.add(testCar);
+        EditText carNameEntry = (EditText) findViewById(R.id.carNameEntry);
+        EditText expensesEntry = (EditText) findViewById(R.id.expensesEntry);
+        String car_name = carNameEntry.getText().toString();
+        String expenses = expensesEntry.getText().toString();
+        MainActivity.Car newCar = new MainActivity.Car();
+        newCar.setCar_name(car_name);
+        newCar.setTotal_expenses(expenses);
+        //CHANGE SO THAT ESTIMATED VALUE IS PULLED FROM CARS.COM INSTEAD OF BEING SET HERE
+        newCar.setEstimatedValue("test value");
+        information_array.add(newCar);
         information_array_adapter.notifyDataSetChanged();
     }
 

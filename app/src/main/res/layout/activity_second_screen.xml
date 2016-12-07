@@ -129,13 +129,7 @@
         <ListView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:id="@+id/maintenanceList"
-            android:layout_weight="1"/>
-
-        <ListView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:id="@+id/expensesList"
+            android:id="@+id/secondScreenList"
             android:layout_weight="1"/>
 
     </LinearLayout>

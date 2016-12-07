@@ -74,6 +74,14 @@ public class MainActivity extends FragmentActivity {
         private String date_of_next_inspection;
         private String car_name;
 
+        //YO MITCH I MADE A FAKE "estimatedValue" ATTRIBUTE AND A FUNCTION TO GET AND SET IT
+        //WE WE WILL USE THIS UNTIL WE GET THE CARS.COM API
+        private String estimatedValue;
+        public String getEstimatedValue() { return estimatedValue; }
+        public void setEstimatedValue(String _estimatedValue) {
+            this.estimatedValue = _estimatedValue;
+        }
+
         public String getCurrent_mileage(){ return current_mileage; }
         public String getStarting_mileage() {return starting_mileage; }
         public String getLast_maintenance_mileage() {return last_maintenance_mileage;}
