@@ -11,43 +11,89 @@
     android:orientation="vertical"
     tools:context="com.android.application.carmaintenanceapp.ThirdScreen">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Expenses History"
-        android:textSize="30dp"
-        android:textAlignment="center"/>
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Expense Name"
+            android:textSize="30dp"
+            android:id="@+id/expense_name"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" - "
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Price"
+            android:textSize="30dp"
+            android:id="@+id/expense_price"/>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="6"
-        android:layout_weight="4"
         android:layout_marginTop="10dp">
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Maintenance Issue"
-            android:textSize="20dp"
-            android:textAlignment="center"
-            android:layout_weight="4"/>
+            android:text="Date: "
+            android:textSize="20dp" />
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Details"
+            android:text="Date of Expense"
             android:textSize="20dp"
-            android:textAlignment="center"
-            android:layout_weight="2"/>
-
+            android:id="@+id/date_of_expense"/>
     </LinearLayout>
 
-    <ListView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/upcomingIssuesList"
-        android:layout_weight="1"/>
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Company: "
+            android:textSize="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Company of Expense"
+            android:textSize="20dp"
+            android:id="@+id/company_of_expense"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Location: "
+            android:textSize="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Location of Expense"
+            android:textSize="20dp"
+            android:id="@+id/location_of_expense"/>
+    </LinearLayout>
 </LinearLayout>

@@ -26,18 +26,18 @@ import java.util.ArrayList;
 
 public class FirstScreen extends AppCompatActivity {
 
-    private ArrayList<MainActivity.Car> information_array;
+    private ArrayList<MainActivity.LoadedPerson.Car> information_array;
     private listAdapter information_array_adapter;
     private ListView carList;
 
-    public class listAdapter extends ArrayAdapter<MainActivity.Car> {
-        public listAdapter(Context context, ArrayList<MainActivity.Car> listItems) {
+    public class listAdapter extends ArrayAdapter<MainActivity.LoadedPerson.Car> {
+        public listAdapter(Context context, ArrayList<MainActivity.LoadedPerson.Car> listItems) {
             super(context, 0, listItems);
         }
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            MainActivity.Car car = getItem(position);
+            MainActivity.LoadedPerson.Car car = getItem(position);
 
             if (convertView == null) {
                 convertView = LayoutInflater.from(getContext()).inflate(R.layout.car_list_layout, parent, false);
@@ -67,36 +67,39 @@ public class FirstScreen extends AppCompatActivity {
 
         //get LoadedPerson object from log in screen
         Intent i = getIntent();
-        //MainActivity.LoadedPerson person = (MainActivity.LoadedPerson) i.getSerializableExtra("LoadedPerson");                    *********COMMENTED FOR NEW IMPLEMENTATION*************
-        ArrayList<String> car_list = i.getStringArrayListExtra("car_list");
+        final MainActivity.LoadedPerson person = (MainActivity.LoadedPerson) i.getSerializableExtra("LoadedPerson");
+        //ArrayList<String> car_list = i.getStringArrayListExtra("car_list");                                                   ****************COMMENTED - STRING ONLY IMPLEMENTATION*******************
 
-        ArrayAdapter<String> carListAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, car_list);
+        /*ArrayAdapter<String> carListAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, car_list);      ****************COMMENTED - STRING ONLY IMPLEMENTATION*******************
         carList.setAdapter(carListAdapter);
-        carListAdapter.notifyDataSetChanged();
+        carListAdapter.notifyDataSetChanged();*/
 
 
         //array of data (Car name, estimated value, expenses), get from LoadedPerson object that was passed in from log in screen
-        /*information_array = new ArrayList<MainActivity.Car>();                                                                       *********COMMENTED FOR NEW IMPLEMENTATION*************
+        information_array = new ArrayList<MainActivity.LoadedPerson.Car>();
         information_array = person.getCars();
 
         //array adapter stuff
         information_array_adapter = new listAdapter(this, information_array);
         carList.setAdapter(information_array_adapter);
 
-        information_array_adapter.notifyDataSetChanged();*/
+        information_array_adapter.notifyDataSetChanged();
 
         //onClickListener for car list
         //when list item is clicked we want to go to the second screen and pull up details about the car that was clicked
         carList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                /*MainActivity.Car clickedCar = information_array.get(position);                    *********COMMENTED FOR NEW IMPLEMENTATION*************
+                MainActivity.LoadedPerson.Car clickedCar = information_array.get(position);
                 Intent intent = new Intent(getApplicationContext(), SecondScreen.class);
-                intent.putExtra("clickedCar", clickedCar);
-                startActivity(intent);*/
+                //intent.putExtra("clickedCar", clickedCar);
+                //INSTEAD OF PASSING THE CLICKED CAR WE ARE GOING TO PASS THE INDEX OF THE CLICKED CAR IN THE ARRAY AND THE ENTIRE LOADEDPERSON OBJECT
+                intent.putExtra("LoadedPerson", person);
+                intent.putExtra("index", position);
+                startActivity(intent);
 
-                Intent intent = new Intent(getApplicationContext(), SecondScreen.class);            //ASK MITCH: What data should i pass here? Assuming u do some firebase shit here, for now just passing a set array
-                String currentMileage = "123456";
+                /*Intent intent = new Intent(getApplicationContext(), SecondScreen.class);            //ASK MITCH: What data should i pass here? Assuming u do some firebase shit here, for now just passing a set array
+                String currentMileage = "123456";                                                       ****************COMMENTED - STRING ONLY IMPLEMENTATION*******************
                 ArrayList<String> issuesList = new ArrayList<String>();
                 issuesList.add("Replace Tires");
                 issuesList.add("Oil Change");
@@ -108,7 +111,7 @@ public class FirstScreen extends AppCompatActivity {
                 intent.putExtra("currentMileage", currentMileage);
                 intent.putStringArrayListExtra("issuesList", issuesList);
                 intent.putStringArrayListExtra("expensesList", expensesList);
-                startActivity(intent);
+                startActivity(intent);*/
             }
         });
 
@@ -151,7 +154,7 @@ public class FirstScreen extends AppCompatActivity {
         EditText expensesEntry = (EditText) findViewById(R.id.expensesEntry);
         String car_name = carNameEntry.getText().toString();
         String expenses = expensesEntry.getText().toString();
-        MainActivity.Car newCar = new MainActivity.Car();
+        MainActivity.LoadedPerson.Car newCar = new MainActivity.LoadedPerson.Car();
         newCar.setCar_name(car_name);
         newCar.setTotal_expenses(expenses);
         //CHANGE SO THAT ESTIMATED VALUE IS PULLED FROM CARS.COM INSTEAD OF BEING SET HERE

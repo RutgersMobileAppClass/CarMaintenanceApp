@@ -18,14 +18,14 @@ import java.util.ArrayList;
 
 public class ThirdScreen extends AppCompatActivity {
 
-    /*public class fixListAdapter extends ArrayAdapter<MainActivity.Fix> {                                                                  *********COMMENTED FOR NEW IMPLEMENTATION*************
-        public fixListAdapter(Context context, ArrayList<MainActivity.Fix> listItems) {
+    public class fixListAdapter extends ArrayAdapter<MainActivity.LoadedPerson.Car.Fix> {
+        public fixListAdapter(Context context, ArrayList<MainActivity.LoadedPerson.Car.Fix> listItems) {
             super(context, 0, listItems);
         }
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            MainActivity.Fix fixItem = getItem(position);
+            MainActivity.LoadedPerson.Car.Fix fixItem = getItem(position);
 
             if (convertView == null) {
                 convertView = LayoutInflater.from(getContext()).inflate(R.layout.third_screen_list_layout, parent, false);
@@ -44,7 +44,7 @@ public class ThirdScreen extends AppCompatActivity {
             return convertView;
         }
 
-    }*/
+    }
 
 
     @Override
@@ -52,11 +52,11 @@ public class ThirdScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_third_screen);
 
-        Intent i = getIntent();
-        final ArrayList<String> fixCompany = i.getStringArrayListExtra("fixCompany");
+        /*Intent i = getIntent();
+        final ArrayList<String> fixCompany = i.getStringArrayListExtra("fixCompany");                           ****************COMMENTED - STRING ONLY IMPLEMENTATION*******************
         final ArrayList<String> fixLocation = i.getStringArrayListExtra("fixLocation");
         final ArrayList<String> fixPrice = i.getStringArrayListExtra("fixPrice");
-        final ArrayList<String> fixDistance = i.getStringArrayListExtra("fixDistance");
+        final ArrayList<String> fixDistance = i.getStringArrayListExtra("fixDistance");*/
 
         //******Structure: List of Cars: [Car1, Car2, Car3, ....., CarN]
         //                                             |
@@ -68,11 +68,13 @@ public class ThirdScreen extends AppCompatActivity {
         //                                                                     -LocationOfFix
         //                                                                     -PriceOfFix
         //                                                                     -DistanceToFix
-       /* Intent i = getIntent();                                                                                                           *********COMMENTED FOR NEW IMPLEMENTATION*************
-        int index = i.getIntExtra("index", 0);
-        MainActivity.Car clickedCar = (MainActivity.Car) i.getSerializableExtra("clickedCar");
-        String nameOfIssue = clickedCar.getUpcomingMaintenanceIssues().get(index).getNameOfIssue();         //get name of issue
-        ArrayList<MainActivity.Fix> fixArray = clickedCar.getUpcomingMaintenanceIssues().get(index).getListOfPossibleFixes();            //get array of possible fixes
+        Intent i = getIntent();
+        int indexOfIssue = i.getIntExtra("indexOfIssue", 0);
+        int indexOfClickedCar = i.getIntExtra("indexOfClickedCar", 0);
+        MainActivity.LoadedPerson loadedPerson = (MainActivity.LoadedPerson) i.getSerializableExtra("loadedPerson");
+        MainActivity.LoadedPerson.Car clickedCar = loadedPerson.getCars().get(indexOfClickedCar);
+        String nameOfIssue = clickedCar.getUpcomingMaintenanceIssues().get(indexOfIssue).getNameOfIssue();         //get name of issue
+        ArrayList<MainActivity.LoadedPerson.Car.Fix> fixArray = clickedCar.getUpcomingMaintenanceIssues().get(indexOfIssue).getListOfPossibleFixes();            //get array of possible fixes
 
         //Set title of screen to the name of the issue
         TextView titleOfScreen = (TextView) findViewById(R.id.selectedMaintenanceIssue);
@@ -83,7 +85,7 @@ public class ThirdScreen extends AppCompatActivity {
         ListView fixList = (ListView) findViewById(R.id.upcomingIssuesList);
         fixListAdapter fix_list_adapter = new fixListAdapter(this, fixArray);
         fixList.setAdapter(fix_list_adapter);
-        fix_list_adapter.notifyDataSetChanged();*/
+        fix_list_adapter.notifyDataSetChanged();
 
     }
 }

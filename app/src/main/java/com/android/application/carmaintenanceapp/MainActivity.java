@@ -63,74 +63,7 @@ public class MainActivity extends FragmentActivity {
     LoginButton login_button;
     Boolean ShutOffButtons;
 
-    public static class Fix implements Serializable {
-        private String Company;
-        private String Location;
-        private String Price;
-        private String Distance;
-        private String fixDate;
-
-        public String getCompany() {
-            return Company;
-        }
-        public String getLocation() {
-            return Location;
-        }
-        public String getPrice() {
-            return Price;
-        }
-        public String getDistance() {
-            return Distance;
-        }
-        public String getFixDate() {
-            return fixDate;
-        }
-
-        public void setCompany(String company) { this.Company = company; }
-        public void setLocation(String location) { this.Location = location; }
-        public void setPrice(String price) { this.Price = price; }
-        public void setDistance(String distance) { this.Distance = distance; }
-        public void setFixDate(String date) { this.fixDate = date; }
-
-        //TEST FIX CONSTRUCTOR
-        Fix(String company, String location, String price, String distance) {
-            this.Company = company;
-            this.Location = location;
-            this.Price = price;
-            this.Distance = distance;
-        }
-    }
-
-    public static class maintenanceIssue implements Serializable {
-        private String nameOfIssue;
-        private ArrayList<Fix> possibleFixes;
-
-        public String getNameOfIssue() {
-            return nameOfIssue;
-        }
-
-        public void setNameOfIssue(String nameOfIssue) {
-            this.nameOfIssue = nameOfIssue;
-        }
-
-        public ArrayList<Fix> getListOfPossibleFixes() {
-            return possibleFixes;
-        }
-
-        //TEST MAINTENANCE ISSUE CONSTRUCTOR
-        maintenanceIssue() {
-            Fix fix1 = new Fix("TestShop1", "Location1", "$100Price1", "Distance1 Miles");
-            Fix fix2 = new Fix("TestShop2", "Location2", "$200Price2", "Distance2 Kilometers");
-            ArrayList<Fix> fixArray = new ArrayList<>();
-            fixArray.add(fix1);
-            fixArray.add(fix2);
-            this.possibleFixes = fixArray;
-            this.nameOfIssue = "Replace Tires Test Issue 1";
-        }
-    }
-
-
-    public static class Car implements Serializable{
+    /*public static class Car implements Serializable{
         private String current_mileage;
         private String starting_mileage;
         private String last_maintenance_mileage;
@@ -174,28 +107,6 @@ public class MainActivity extends FragmentActivity {
             this.current_mileage = "123456";
         }
 
-        /*private ArrayList<String> upcoming_maintenance_issues;
-        public ArrayList<String> getUpcomingMaintenanceIssues() {
-            return upcoming_maintenance_issues;
-        }
-        private ArrayList<String> fixPrice;
-        private ArrayList<String> fixCompany;
-        private ArrayList<String> fixLocation;
-        private ArrayList<String> fixDistance;
-        public ArrayList<String> getFixPrice() {
-            return fixPrice;
-        }
-        public ArrayList<String> getFixCompany() {
-            return fixCompany;
-        }
-        public ArrayList<String> getFixLocation() {
-            return fixLocation;
-        }
-        public ArrayList<String> getFixDistance() {
-            return fixDistance;
-        }*/
-
-
         public String getCurrent_mileage(){ return current_mileage; }
         public String getStarting_mileage() {return starting_mileage; }
         public String getLast_maintenance_mileage() {return last_maintenance_mileage;}
@@ -233,7 +144,7 @@ public class MainActivity extends FragmentActivity {
             this.expenses = expenses;
         }
 
-    }
+    }*/
 
     public static class LoadedPerson implements Serializable {
 
@@ -263,6 +174,196 @@ public class MainActivity extends FragmentActivity {
         public void setUsername(String _username) {this.username = _username;}
         public void setEmail(String _email) {this.email = _email;}
         public void setCars(ArrayList<Car> _cars) {this.cars = _cars;}
+
+        public static class Car implements Serializable{
+            private String current_mileage;
+            private String starting_mileage;
+            private String last_maintenance_mileage;
+            private String total_expenses;
+            //private ArrayList<String> type_of_expenses;
+            //private ArrayList<String> expenses;
+            private String initial_investment;    // How much you payed for the car
+            private String date_of_next_inspection;
+            private String car_name;
+
+            //YO MITCH I MADE A FAKE "estimatedValue" ATTRIBUTE AND A FUNCTION TO GET AND SET IT
+            //WE WE WILL USE THIS UNTIL WE GET THE CARS.COM API
+            private String estimatedValue;
+            public String getEstimatedValue() { return estimatedValue; }
+            public void setEstimatedValue(String _estimatedValue) {
+                this.estimatedValue = _estimatedValue;
+            }
+
+            //YO MITCH MAKING AN ARRAY OF MAINTENANCE ISSUES THAT ARE COMING UP FOR SECOND SCREEN
+            private ArrayList<maintenanceIssue> upcoming_maintenance_issues;
+            public ArrayList<maintenanceIssue> getUpcomingMaintenanceIssues() {
+                return upcoming_maintenance_issues;
+            }
+
+            //MAKING AN ARRAY OF EXPENSES FOR SECOND SCREEN
+            private ArrayList<Expense> history_of_expenses;
+            public ArrayList<Expense> getHistory_of_expenses() {
+                return history_of_expenses;
+            }
+
+            //TEST CAR CONSTRUCTOR
+            Car() {
+                this.car_name = "Tesla";
+                this.estimatedValue = "$30000EV";
+                this.total_expenses = "10000TE";
+                maintenanceIssue testIssue = new maintenanceIssue();
+                ArrayList<maintenanceIssue> testIssueArray = new ArrayList<>();
+                testIssueArray.add(testIssue);
+                this.upcoming_maintenance_issues = testIssueArray;
+                /*ArrayList<String> expensesList = new ArrayList<>();
+                expensesList.add("expense 1");
+                expensesList.add("espense 2");
+                this.type_of_expenses = expensesList;*/
+                ArrayList<Expense> expensesList = new ArrayList<>();
+                Expense expense1 = new Expense("Oil Change", "3/2/13", "$60", "Midas", "Bridgewater, NJ");
+                Expense expense2 = new Expense("Coolant", "4/3/15", "$20", "Frank's Auto Shop", "Holmdel, NJ");
+                expensesList.add(expense1);
+                expensesList.add(expense2);
+                this.history_of_expenses = expensesList;
+                this.current_mileage = "123456";
+            }
+
+            public void Car(){
+            };
+            public String getCurrent_mileage(){ return current_mileage; }
+            public String getStarting_mileage() {return starting_mileage; }
+            public String getLast_maintenance_mileage() {return last_maintenance_mileage;}
+            public String getTotal_expenses() { return total_expenses;}
+            public String getInitial_investment() { return initial_investment;}
+            public String getDate_of_next_inspection() {return date_of_next_inspection;}
+            public String getCar_name() {return car_name;}
+            /*public ArrayList<String> getType_of_expenses() { return type_of_expenses; }*/
+            /*public ArrayList<String> getExpenses() { return expenses;}*/
+            public void setCar_name(String _car_name) {this.car_name = _car_name;}
+            public void setCurrent_mileage(String current_mileage) {
+                this.current_mileage = current_mileage;
+            }
+            public void setDate_of_next_inspection(String date_of_next_inspection) {
+                this.date_of_next_inspection = date_of_next_inspection;
+            }
+            public void setInitial_investment(String initial_investment) {
+                this.initial_investment = initial_investment;
+            }
+            public void setLast_maintenance_mileage(String last_maintenance_mileage) {
+                this.last_maintenance_mileage = last_maintenance_mileage;
+            }
+            public void setStarting_mileage(String starting_mileage) {
+                this.starting_mileage = starting_mileage;
+            }
+            public void setTotal_expenses(String total_expenses) {
+                this.total_expenses = total_expenses;
+            }
+            /*public void setType_of_expenses(ArrayList<String> type_of_expenses) {
+                this.type_of_expenses = type_of_expenses;
+            }*/
+            /*public void setExpenses(ArrayList<String> expenses) {
+                this.expenses = expenses;
+            }*/
+
+
+            public static class Fix implements Serializable {
+                private String Company;
+                private String Location;
+                private String Price;
+                private String Distance;
+                //private String fixDate;
+
+                public String getCompany() {
+                    return Company;
+                }
+                public String getLocation() {
+                    return Location;
+                }
+                public String getPrice() {
+                    return Price;
+                }
+                public String getDistance() {
+                    return Distance;
+                }
+                /*public String getFixDate() { return fixDate; }*/
+
+                public void setCompany(String company) { this.Company = company; }
+                public void setLocation(String location) { this.Location = location; }
+                public void setPrice(String price) { this.Price = price; }
+                public void setDistance(String distance) { this.Distance = distance; }
+                /*public void setFixDate(String date) { this.fixDate = date; }*/
+
+                public void Fix() {}
+
+                //TEST FIX CONSTRUCTOR
+                Fix(String company, String location, String price, String distance) {
+                    this.Company = company;
+                    this.Location = location;
+                    this.Price = price;
+                    this.Distance = distance;
+                }
+            }
+
+            public static class Expense implements  Serializable {
+                private String nameOfExpense;
+                private String dateOfExpense;
+                private String priceOfExpense;
+                private String companyOfExpense;
+                private String locationOfExpense;
+
+                public String getNameOfExpense() { return nameOfExpense; }
+                public String getDateOfExpense() { return dateOfExpense; }
+                public String getPriceOfExpense() { return priceOfExpense; }
+                public String getCompanyOfExpense() { return companyOfExpense; }
+                public String getLocationOfExpense() { return locationOfExpense; }
+
+                public void setNameOfExpense(String name) { this.nameOfExpense = name; }
+                public void setDateOfExpense(String date) { this.dateOfExpense = date; }
+                public void setPriceOfExpense(String price) { this.priceOfExpense = price; }
+                public void setCompanyOfExpense(String company) { this.companyOfExpense = company; }
+                public void setLocationOfExpense(String location) { this.locationOfExpense = location; }
+
+                public void Expense() {}
+
+                //TEST EXPENSE CONSTRUCTOR
+                Expense(String name, String date, String price, String company, String location) {
+                    this.nameOfExpense = name;
+                    this.dateOfExpense = date;
+                    this.priceOfExpense = price;
+                    this.companyOfExpense = company;
+                    this.locationOfExpense = location;
+                }
+            }
+
+
+            public static class maintenanceIssue implements Serializable {
+                private String nameOfIssue;
+                private ArrayList<Fix> possibleFixes;
+
+                public String getNameOfIssue() {
+                    return nameOfIssue;
+                }
+
+                public void setNameOfIssue(String nameOfIssue) {
+                    this.nameOfIssue = nameOfIssue;
+                }
+
+                public ArrayList<Fix> getListOfPossibleFixes() {
+                    return possibleFixes;
+                }
+
+                //TEST MAINTENANCE ISSUE CONSTRUCTOR
+                maintenanceIssue() {
+                    Fix fix1 = new Fix("TestShop1", "Location1", "$100Price1", "Distance1 Miles");
+                    Fix fix2 = new Fix("TestShop2", "Location2", "$200Price2", "Distance2 Kilometers");
+                    ArrayList<Fix> fixArray = new ArrayList<>();
+                    fixArray.add(fix1);
+                    fixArray.add(fix2);
+                    this.possibleFixes = fixArray;
+                    this.nameOfIssue = "Replace Tires Test Issue 1";
+                }
+            }
+        }
     }
 
     @Override
@@ -626,22 +727,22 @@ public class MainActivity extends FragmentActivity {
 
 
     public void test(View view) {
-        /*LoadedPerson testPerson = new LoadedPerson();                             *********COMMENTED FOR NEW IMPLEMENTATION*************
-        Car testCar = new Car();
-        ArrayList<Car> testCarArray = new ArrayList<>();
+        LoadedPerson testPerson = new LoadedPerson();
+        LoadedPerson.Car testCar = new LoadedPerson.Car();
+        ArrayList<LoadedPerson.Car> testCarArray = new ArrayList<>();
         testCarArray.add(testCar);
         testPerson.setCars(testCarArray);
         Intent intent = new Intent(getApplicationContext(), FirstScreen.class);
         intent.putExtra("LoadedPerson", testPerson);
-        startActivity(intent);*/
+        startActivity(intent);
 
-        ArrayList<String> car_list = new ArrayList<>();
+        /*ArrayList<String> car_list = new ArrayList<>();                           ****************COMMENTED - STRING ONLY IMPLEMENTATION*******************
         car_list.add("Tesla");
         car_list.add("Honda Accord");
         car_list.add("Invisible Boatmobile");
         Intent intent = new Intent(getApplicationContext(), FirstScreen.class);
         intent.putStringArrayListExtra("car_list", car_list);
-        startActivity(intent);
+        startActivity(intent);*/
     }
 
 
