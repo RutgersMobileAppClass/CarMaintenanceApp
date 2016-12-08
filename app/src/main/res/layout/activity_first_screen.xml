@@ -19,7 +19,7 @@
         android:text="My Cars"
         android:textSize="50dp" />
 
-    <LinearLayout
+    <!--<LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -47,7 +47,7 @@
             android:textSize="15dp"
             android:layout_weight="1"
             android:textAlignment="center"/>
-    </LinearLayout>
+    </LinearLayout>-->
 
     <ListView
         android:layout_width="match_parent"

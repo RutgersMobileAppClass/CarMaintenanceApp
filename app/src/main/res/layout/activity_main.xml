@@ -18,6 +18,8 @@
         android:textSize="50sp"
         android:textAlignment="center"/>
 
+
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -99,6 +101,12 @@
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:onClick="CreateNewAccount"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Just for testing...mitch dont freak out"
+            android:onClick="test"/>
     </LinearLayout>
 
     <ProgressBar

@@ -30,31 +30,6 @@ public class FirstScreen extends AppCompatActivity {
     private listAdapter information_array_adapter;
     private ListView carList;
 
-    public class replaceWithPersonClass {
-        private ArrayList<replaceWithCarClass> carList;
-
-        public replaceWithPersonClass(ArrayList<replaceWithCarClass> carList) {
-            this.carList = carList;
-        }
-
-        public void addCar(String carName, String estimatedVal, String expenses) {
-            replaceWithCarClass newCar = new replaceWithCarClass(carName, estimatedVal, expenses);
-            this.carList.add(newCar);
-        }
-    }
-
-    public class replaceWithCarClass {
-        private String carName;
-        private String estimatedVal;
-        private String expenses;
-
-        public replaceWithCarClass(String carName, String estimatedVal, String expenses) {
-            this.carName = carName;
-            this.estimatedVal = estimatedVal;
-            this.expenses = expenses;
-        }
-    }
-
     public class listAdapter extends ArrayAdapter<MainActivity.Car> {
         public listAdapter(Context context, ArrayList<MainActivity.Car> listItems) {
             super(context, 0, listItems);
@@ -92,26 +67,47 @@ public class FirstScreen extends AppCompatActivity {
 
         //get LoadedPerson object from log in screen
         Intent i = getIntent();
-        MainActivity.LoadedPerson person = (MainActivity.LoadedPerson) i.getSerializableExtra("LoadedPerson");
+        //MainActivity.LoadedPerson person = (MainActivity.LoadedPerson) i.getSerializableExtra("LoadedPerson");                    *********COMMENTED FOR NEW IMPLEMENTATION*************
+        ArrayList<String> car_list = i.getStringArrayListExtra("car_list");
+
+        ArrayAdapter<String> carListAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, car_list);
+        carList.setAdapter(carListAdapter);
+        carListAdapter.notifyDataSetChanged();
+
 
         //array of data (Car name, estimated value, expenses), get from LoadedPerson object that was passed in from log in screen
-        information_array = new ArrayList<MainActivity.Car>();
+        /*information_array = new ArrayList<MainActivity.Car>();                                                                       *********COMMENTED FOR NEW IMPLEMENTATION*************
         information_array = person.getCars();
 
         //array adapter stuff
         information_array_adapter = new listAdapter(this, information_array);
         carList.setAdapter(information_array_adapter);
 
-        information_array_adapter.notifyDataSetChanged();
+        information_array_adapter.notifyDataSetChanged();*/
 
         //onClickListener for car list
         //when list item is clicked we want to go to the second screen and pull up details about the car that was clicked
         carList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                MainActivity.Car clickedCar = information_array.get(position);
+                /*MainActivity.Car clickedCar = information_array.get(position);                    *********COMMENTED FOR NEW IMPLEMENTATION*************
                 Intent intent = new Intent(getApplicationContext(), SecondScreen.class);
                 intent.putExtra("clickedCar", clickedCar);
+                startActivity(intent);*/
+
+                Intent intent = new Intent(getApplicationContext(), SecondScreen.class);            //ASK MITCH: What data should i pass here? Assuming u do some firebase shit here, for now just passing a set array
+                String currentMileage = "123456";
+                ArrayList<String> issuesList = new ArrayList<String>();
+                issuesList.add("Replace Tires");
+                issuesList.add("Oil Change");
+                issuesList.add("Inspection");
+                ArrayList<String> expensesList = new ArrayList<String>();
+                expensesList.add("Windshield Wipers - $20");
+                expensesList.add("New Engine - $2000");
+                expensesList.add("Radio - $300");
+                intent.putExtra("currentMileage", currentMileage);
+                intent.putStringArrayListExtra("issuesList", issuesList);
+                intent.putStringArrayListExtra("expensesList", expensesList);
                 startActivity(intent);
             }
         });

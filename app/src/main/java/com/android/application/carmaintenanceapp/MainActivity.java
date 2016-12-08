@@ -43,6 +43,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.Serializable;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.regex.Matcher;
@@ -61,6 +62,72 @@ public class MainActivity extends FragmentActivity {
     CallbackManager callbackManager;
     LoginButton login_button;
     Boolean ShutOffButtons;
+
+    public static class Fix implements Serializable {
+        private String Company;
+        private String Location;
+        private String Price;
+        private String Distance;
+        private String fixDate;
+
+        public String getCompany() {
+            return Company;
+        }
+        public String getLocation() {
+            return Location;
+        }
+        public String getPrice() {
+            return Price;
+        }
+        public String getDistance() {
+            return Distance;
+        }
+        public String getFixDate() {
+            return fixDate;
+        }
+
+        public void setCompany(String company) { this.Company = company; }
+        public void setLocation(String location) { this.Location = location; }
+        public void setPrice(String price) { this.Price = price; }
+        public void setDistance(String distance) { this.Distance = distance; }
+        public void setFixDate(String date) { this.fixDate = date; }
+
+        //TEST FIX CONSTRUCTOR
+        Fix(String company, String location, String price, String distance) {
+            this.Company = company;
+            this.Location = location;
+            this.Price = price;
+            this.Distance = distance;
+        }
+    }
+
+    public static class maintenanceIssue implements Serializable {
+        private String nameOfIssue;
+        private ArrayList<Fix> possibleFixes;
+
+        public String getNameOfIssue() {
+            return nameOfIssue;
+        }
+
+        public void setNameOfIssue(String nameOfIssue) {
+            this.nameOfIssue = nameOfIssue;
+        }
+
+        public ArrayList<Fix> getListOfPossibleFixes() {
+            return possibleFixes;
+        }
+
+        //TEST MAINTENANCE ISSUE CONSTRUCTOR
+        maintenanceIssue() {
+            Fix fix1 = new Fix("TestShop1", "Location1", "$100Price1", "Distance1 Miles");
+            Fix fix2 = new Fix("TestShop2", "Location2", "$200Price2", "Distance2 Kilometers");
+            ArrayList<Fix> fixArray = new ArrayList<>();
+            fixArray.add(fix1);
+            fixArray.add(fix2);
+            this.possibleFixes = fixArray;
+            this.nameOfIssue = "Replace Tires Test Issue 1";
+        }
+    }
 
 
     public static class Car implements Serializable{
@@ -83,10 +150,51 @@ public class MainActivity extends FragmentActivity {
         }
 
         //YO MITCH MAKING AN ARRAY OF MAINTENANCE ISSUES THAT ARE COMING UP FOR SECOND SCREEN
-        private ArrayList<String> upcoming_maintenance_issues;
+        //What I'm going to do is also make an array of price, company, location, and distance
+        //each index is going to correspond...what i mean is that for example index 0 of each of
+        //these arrays is going to correspond to the maintenance issue in upcoming_maintenance_issues[0]
+        private ArrayList<maintenanceIssue> upcoming_maintenance_issues;
+        public ArrayList<maintenanceIssue> getUpcomingMaintenanceIssues() {
+            return upcoming_maintenance_issues;
+        }
+
+        //TEST CAR CONSTRUCTOR
+        Car() {
+            this.car_name = "Tesla";
+            this.estimatedValue = "$30000EV";
+            this.total_expenses = "10000TE";
+            maintenanceIssue testIssue = new maintenanceIssue();
+            ArrayList<maintenanceIssue> testIssueArray = new ArrayList<>();
+            testIssueArray.add(testIssue);
+            this.upcoming_maintenance_issues = testIssueArray;
+            ArrayList<String> expensesList = new ArrayList<>();
+            expensesList.add("expense 1");
+            expensesList.add("espense 2");
+            this.type_of_expenses = expensesList;
+            this.current_mileage = "123456";
+        }
+
+        /*private ArrayList<String> upcoming_maintenance_issues;
         public ArrayList<String> getUpcomingMaintenanceIssues() {
             return upcoming_maintenance_issues;
         }
+        private ArrayList<String> fixPrice;
+        private ArrayList<String> fixCompany;
+        private ArrayList<String> fixLocation;
+        private ArrayList<String> fixDistance;
+        public ArrayList<String> getFixPrice() {
+            return fixPrice;
+        }
+        public ArrayList<String> getFixCompany() {
+            return fixCompany;
+        }
+        public ArrayList<String> getFixLocation() {
+            return fixLocation;
+        }
+        public ArrayList<String> getFixDistance() {
+            return fixDistance;
+        }*/
+
 
         public String getCurrent_mileage(){ return current_mileage; }
         public String getStarting_mileage() {return starting_mileage; }
@@ -516,6 +624,25 @@ public class MainActivity extends FragmentActivity {
 
     }
 
+
+    public void test(View view) {
+        /*LoadedPerson testPerson = new LoadedPerson();                             *********COMMENTED FOR NEW IMPLEMENTATION*************
+        Car testCar = new Car();
+        ArrayList<Car> testCarArray = new ArrayList<>();
+        testCarArray.add(testCar);
+        testPerson.setCars(testCarArray);
+        Intent intent = new Intent(getApplicationContext(), FirstScreen.class);
+        intent.putExtra("LoadedPerson", testPerson);
+        startActivity(intent);*/
+
+        ArrayList<String> car_list = new ArrayList<>();
+        car_list.add("Tesla");
+        car_list.add("Honda Accord");
+        car_list.add("Invisible Boatmobile");
+        Intent intent = new Intent(getApplicationContext(), FirstScreen.class);
+        intent.putStringArrayListExtra("car_list", car_list);
+        startActivity(intent);
+    }
 
 
 }
