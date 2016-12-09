@@ -13,9 +13,11 @@ public class FourthScreen extends AppCompatActivity {
         setContentView(R.layout.activity_fourth_screen);
 
         Intent i = getIntent();
-        int indexOfIssue = i.getIntExtra("indexOfIssue", 0);
+        int indexOfIssue = i.getIntExtra("indexOfExpense", 0);
         int indexOfClickedCar = i.getIntExtra("indexOfClickedCar", 0);
         MainActivity.LoadedPerson loadedPerson = (MainActivity.LoadedPerson) i.getSerializableExtra("loadedPerson");
+
+
         MainActivity.LoadedPerson.Car clickedCar = loadedPerson.getCars().get(indexOfClickedCar);
         MainActivity.LoadedPerson.Car.Expense clickedExpense = clickedCar.getHistory_of_expenses().get(indexOfIssue);
 

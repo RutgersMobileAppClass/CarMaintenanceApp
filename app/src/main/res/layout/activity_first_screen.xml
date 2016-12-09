@@ -53,13 +53,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/carList"
-        android:layout_weight="1" />
+        android:layout_weight="1"/>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@android:color/darker_gray"/>
-
+ <!--
     <TextView
         android:layout_marginTop="5dp"
         android:layout_width="match_parent"
@@ -104,8 +104,16 @@
             android:layout_weight="1"
             android:layout_marginBottom="5dp"/>
 
-    </LinearLayout>
+    </LinearLayout> -->
 
-
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add"
+        android:id="@+id/addButton"
+        android:layout_gravity="bottom|right"
+        android:textSize="20dp"
+        android:onClick="addCar"
+        android:layout_marginBottom="5dp" />
 
 </LinearLayout>

@@ -86,12 +86,37 @@
             />
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@android:color/transparent"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Adjust Mileage"
         android:layout_gravity="right"
-        android:layout_marginTop="5dp"/>
+        android:layout_marginTop="5dp"
+        android:onClick="AdjustMileage"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/inputborder"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:hint="NEW MILEAGE"
+        android:paddingStart="15dp"
+        android:paddingLeft="15dp"
+        android:inputType="number"
+        android:id="@+id/adjust_mileage"/>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -125,18 +150,42 @@
         android:orientation="horizontal"
         android:weightSum="2"
         android:layout_weight="1">
-
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="1">
         <ListView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/secondScreenIssuesList"
             android:layout_weight="1"/>
 
-        <ListView
-            android:layout_width="wrap_content"
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0px"
             android:layout_height="match_parent"
-            android:id="@+id/secondScreenExpensesList"
-            android:layout_weight="1"/>
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/secondScreenExpensesList"
+                android:layout_weight="1"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:text="Add Expense"
+                android:onClick="addExpense"
+                android:id="@+id/addExpenseButton"/>
+
+        </LinearLayout>
+
+
 
     </LinearLayout>
 

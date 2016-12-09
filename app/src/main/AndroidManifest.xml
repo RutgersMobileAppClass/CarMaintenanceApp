@@ -50,7 +50,9 @@
         </activity>
         <activity android:name=".SecondScreen" />
         <activity android:name=".FourthScreen" />
-        <activity android:name=".ThirdScreen"></activity>
+        <activity android:name=".ThirdScreen" />
+        <activity android:name=".AddNewCar" />
+        <activity android:name=".AddNewExpense"></activity>
     </application>
 
 </manifest>

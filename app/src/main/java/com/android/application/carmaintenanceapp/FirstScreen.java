@@ -1,5 +1,6 @@
 package com.android.application.carmaintenanceapp;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -21,14 +22,20 @@ import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+
+import static com.android.application.carmaintenanceapp.MainActivity.current_user;
 
 public class FirstScreen extends AppCompatActivity {
 
     private ArrayList<MainActivity.LoadedPerson.Car> information_array;
     private listAdapter information_array_adapter;
     private ListView carList;
+    String TAG = "First Screen";
+    MainActivity.LoadedPerson person;
 
     public class listAdapter extends ArrayAdapter<MainActivity.LoadedPerson.Car> {
         public listAdapter(Context context, ArrayList<MainActivity.LoadedPerson.Car> listItems) {
@@ -56,8 +63,6 @@ public class FirstScreen extends AppCompatActivity {
 
     }
 
-    String TAG = "First Screen";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,7 +72,7 @@ public class FirstScreen extends AppCompatActivity {
 
         //get LoadedPerson object from log in screen
         Intent i = getIntent();
-        final MainActivity.LoadedPerson person = (MainActivity.LoadedPerson) i.getSerializableExtra("LoadedPerson");
+        person = (MainActivity.LoadedPerson) i.getSerializableExtra("LoadedPerson");
         //ArrayList<String> car_list = i.getStringArrayListExtra("car_list");                                                   ****************COMMENTED - STRING ONLY IMPLEMENTATION*******************
 
         /*ArrayAdapter<String> carListAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, car_list);      ****************COMMENTED - STRING ONLY IMPLEMENTATION*******************
@@ -78,6 +83,8 @@ public class FirstScreen extends AppCompatActivity {
         //array of data (Car name, estimated value, expenses), get from LoadedPerson object that was passed in from log in screen
         information_array = new ArrayList<MainActivity.LoadedPerson.Car>();
         information_array = person.getCars();
+
+
 
         //array adapter stuff
         information_array_adapter = new listAdapter(this, information_array);
@@ -90,7 +97,9 @@ public class FirstScreen extends AppCompatActivity {
         carList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                MainActivity.LoadedPerson.Car clickedCar = information_array.get(position);
+
+
+                //MainActivity.LoadedPerson.Car clickedCar = information_array.get(position);
                 Intent intent = new Intent(getApplicationContext(), SecondScreen.class);
                 //intent.putExtra("clickedCar", clickedCar);
                 //INSTEAD OF PASSING THE CLICKED CAR WE ARE GOING TO PASS THE INDEX OF THE CLICKED CAR IN THE ARRAY AND THE ENTIRE LOADEDPERSON OBJECT
@@ -98,20 +107,6 @@ public class FirstScreen extends AppCompatActivity {
                 intent.putExtra("index", position);
                 startActivity(intent);
 
-                /*Intent intent = new Intent(getApplicationContext(), SecondScreen.class);            //ASK MITCH: What data should i pass here? Assuming u do some firebase shit here, for now just passing a set array
-                String currentMileage = "123456";                                                       ****************COMMENTED - STRING ONLY IMPLEMENTATION*******************
-                ArrayList<String> issuesList = new ArrayList<String>();
-                issuesList.add("Replace Tires");
-                issuesList.add("Oil Change");
-                issuesList.add("Inspection");
-                ArrayList<String> expensesList = new ArrayList<String>();
-                expensesList.add("Windshield Wipers - $20");
-                expensesList.add("New Engine - $2000");
-                expensesList.add("Radio - $300");
-                intent.putExtra("currentMileage", currentMileage);
-                intent.putStringArrayListExtra("issuesList", issuesList);
-                intent.putStringArrayListExtra("expensesList", expensesList);
-                startActivity(intent);*/
             }
         });
 
@@ -123,23 +118,26 @@ public class FirstScreen extends AppCompatActivity {
 
                 final int temp = position;
 
-                new AlertDialog.Builder(getApplicationContext())
-                        .setTitle("Remove Car")
-                        .setMessage("Are you sure you want to remove this car?\nAll data associated with this car will be lost.")
-                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                //NEED TO ALSO REMOVE FROM FIREBASE DATABASE
-                                information_array.remove(temp);
-                                information_array_adapter.notifyDataSetChanged();
-                            }
-                        })
-                        .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                // do nothing
-                            }
-                        })
-                        .setIcon(android.R.drawable.ic_dialog_alert)
-                        .show();
+                final AlertDialog.Builder box = new AlertDialog.Builder(FirstScreen.this);
+                box.setTitle("Remove Car");
+                box.setMessage("Are you sure you want to remove this car?\nAll data associated with this car will be lost.");
+                box.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    //NEED TO ALSO REMOVE FROM FIREBASE DATABASE
+                                    information_array.remove(temp);
+                                    information_array_adapter.notifyDataSetChanged();
+
+                                    person.setCars(information_array);
+
+                                }
+                            });
+                box.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    // do nothing
+                                }
+                            });
+                box.setIcon(android.R.drawable.ic_dialog_alert);
+                box.show();
 
                 return true;
             }
@@ -150,17 +148,9 @@ public class FirstScreen extends AppCompatActivity {
     //Add a car to the list
     //make a new Car object and put into the array, and notify the list adapter
     public void addCar(View view) {
-        EditText carNameEntry = (EditText) findViewById(R.id.carNameEntry);
-        EditText expensesEntry = (EditText) findViewById(R.id.expensesEntry);
-        String car_name = carNameEntry.getText().toString();
-        String expenses = expensesEntry.getText().toString();
-        MainActivity.LoadedPerson.Car newCar = new MainActivity.LoadedPerson.Car();
-        newCar.setCar_name(car_name);
-        newCar.setTotal_expenses(expenses);
-        //CHANGE SO THAT ESTIMATED VALUE IS PULLED FROM CARS.COM INSTEAD OF BEING SET HERE
-        newCar.setEstimatedValue("test value");
-        information_array.add(newCar);
-        information_array_adapter.notifyDataSetChanged();
+        Intent intent = new Intent(getApplicationContext(), AddNewCar.class);
+        startActivityForResult(intent, 101);
+
     }
 
 
@@ -209,5 +199,46 @@ public class FirstScreen extends AppCompatActivity {
                         // ...
                     }
                 });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        //super.onActivityResult(requestCode, resultCode, data);
+        // Check which request we're responding to
+        System.out.println("We made it back to activity");
+        if (requestCode == 101) {
+            // Make sure the request was successful
+            System.out.println("Inside request Code");
+            if (resultCode != Activity.RESULT_CANCELED) {
+
+                System.out.println("Inside result Code");
+                MainActivity.LoadedPerson.Car _car = (MainActivity.LoadedPerson.Car) data.getSerializableExtra("Updated Person");
+
+
+
+                person.addCar(_car);
+
+                information_array_adapter.notifyDataSetChanged();
+                System.out.println(person.getEmail());
+                saveToFireBase(person);
+            }
+        }
+    }
+
+    public void saveToFireBase(MainActivity.LoadedPerson _person){
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef;
+
+        try {
+            String[] split = _person.getEmail().split("[@._]");
+            final String named_email = split[0] + "-" + split[1] + "-" + split[2];
+            myRef = database.getReference(named_email);
+        } catch(Exception e){
+            System.out.println("The email is already formatted");
+            myRef = database.getReference(_person.getEmail());
+        }
+
+
+        myRef.setValue(_person);
     }
 }
